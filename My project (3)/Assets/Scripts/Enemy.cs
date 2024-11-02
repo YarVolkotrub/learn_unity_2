@@ -4,6 +4,7 @@ public class Enemy : MonoBehaviour
 {
     private float _speed = 4f;
     private Vector3 _directionMovement;
+
     private void Update()
     {
         Movement();

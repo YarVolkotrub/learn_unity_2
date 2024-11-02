@@ -2,22 +2,23 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private float _speed = 4f;
+    private float _speed = 5f;
     private Vector3 _directionMovement;
+    private GameObject _target;
 
     private void Update()
     {
         Movement();
     }
 
-    public void Init(Vector3 startPosition, Vector3 directionMovement)
+    public void Init(Vector3 startPosition, GameObject target)
     {
-        _directionMovement = directionMovement;
         transform.position = startPosition;
+        _target = target;
     }
 
     private void Movement()
     {
-        transform.Translate(_directionMovement * _speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(gameObject.transform.position, _target.transform.position, Time.deltaTime * _speed);
     }
 }

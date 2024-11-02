@@ -4,14 +4,14 @@ public class Enemy : MonoBehaviour
 {
     private float _speed = 5f;
     private Vector3 _directionMovement;
-    private GameObject _target;
+    private Transform _target;
 
     private void Update()
     {
         Movement();
     }
 
-    public void Init(Vector3 startPosition, GameObject target)
+    public void Init(Vector3 startPosition, Transform target)
     {
         transform.position = startPosition;
         _target = target;

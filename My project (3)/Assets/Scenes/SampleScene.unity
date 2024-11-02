@@ -245,7 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startPosition: {x: 5, y: 5, z: 0}
   _prefab: {fileID: 9115171158272090015, guid: aa06531993cf45c44b47a5c315ac92a0, type: 3}
-  _enemyTarget: {fileID: 1329209234}
+  _enemyTarget: {fileID: 1329209238}
 --- !u!114 &145717133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _startPosition: {x: 5, y: 1, z: 0}
   _prefab: {fileID: -8794117478156856723, guid: 36605a3a0a659ca47ae8c5df26120c06, type: 3}
-  _enemyTarget: {fileID: 1408273309}
+  _enemyTarget: {fileID: 1408273314}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,7 +441,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3181683, y: -0, z: -0, w: 0.9480342}
-  m_LocalPosition: {x: 4.75, y: 11.92, z: -15.71}
+  m_LocalPosition: {x: 4.75, y: 16.19, z: -21.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

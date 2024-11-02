@@ -2,14 +2,17 @@ using UnityEngine;
 
 public class Friend : MonoBehaviour
 {
-
     [SerializeField] private Transform _rotationCenter;
-    private Vector3 _offset;
-    private float _speed = 30f;
+    private Vector3 _startPosition;
+    private Vector3 _endPosition;
+    private float _hight = 10f;
+    private float _timer = 5f;
+    private float _delay = 1f;
 
     private void Start()
     {
-        _offset = transform.position - _rotationCenter.position;
+        _startPosition = transform.position;
+        _endPosition = new Vector3(_startPosition.x, _startPosition.y + _hight, _startPosition.z);
     }
 
     private void Update()
@@ -19,8 +22,7 @@ public class Friend : MonoBehaviour
 
     private void Movement()
     {
-        transform.position = _rotationCenter.position + _offset;
-        transform.RotateAround(_rotationCenter.position, Vector3.up, _speed * Time.deltaTime);
-        _offset = transform.position - _rotationCenter.position;
+        transform.position = Vector3.Lerp(_startPosition, _endPosition, Mathf.PingPong(_timer, _delay));
+        _timer += Time.deltaTime;
     }
 }

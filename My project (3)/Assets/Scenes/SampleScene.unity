@@ -135,8 +135,8 @@ GameObject:
   - component: {fileID: 145717130}
   - component: {fileID: 145717129}
   - component: {fileID: 145717128}
-  - component: {fileID: 145717132}
   - component: {fileID: 145717133}
+  - component: {fileID: 145717132}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -240,12 +240,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 145717126}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01c32978c589bc04097b12979aa57801, type: 3}
+  m_Script: {fileID: 11500000, guid: cb41c37153092b648af75657ee85c664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startPosition: {x: 5, y: 5, z: 0}
-  _prefab: {fileID: 9115171158272090015, guid: aa06531993cf45c44b47a5c315ac92a0, type: 3}
-  _enemyTarget: {fileID: 1329209238}
+  _startPosition: {x: 0, y: 1, z: 0}
+  _prefab: {fileID: -6699807566492818947, guid: 36605a3a0a659ca47ae8c5df26120c06, type: 3}
+  _enemyTarget: {fileID: 1408273314}
 --- !u!114 &145717133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,9 +258,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01c32978c589bc04097b12979aa57801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startPosition: {x: 5, y: 1, z: 0}
-  _prefab: {fileID: -8794117478156856723, guid: 36605a3a0a659ca47ae8c5df26120c06, type: 3}
-  _enemyTarget: {fileID: 1408273314}
+  _startPosition: {x: 0, y: 1, z: 0}
+  _prefab: {fileID: 9115171158272090015, guid: aa06531993cf45c44b47a5c315ac92a0, type: 3}
+  _enemyTarget: {fileID: 1329209238}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

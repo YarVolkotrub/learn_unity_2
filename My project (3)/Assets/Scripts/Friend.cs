@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Friend : MonoBehaviour
 {
-    [SerializeField] private Transform _rotationCenter;
     private Vector3 _startPosition;
     private Vector3 _endPosition;
     private float _hight = 10f;

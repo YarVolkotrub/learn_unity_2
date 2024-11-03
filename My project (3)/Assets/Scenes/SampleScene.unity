@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 145717129}
   - component: {fileID: 145717128}
   - component: {fileID: 145717133}
-  - component: {fileID: 145717132}
+  - component: {fileID: 145717134}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -231,21 +231,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &145717132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 145717126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb41c37153092b648af75657ee85c664, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startPosition: {x: 0, y: 1, z: 0}
-  _prefab: {fileID: -6699807566492818947, guid: 36605a3a0a659ca47ae8c5df26120c06, type: 3}
-  _enemyTarget: {fileID: 1408273314}
 --- !u!114 &145717133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,8 +244,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startPosition: {x: 0, y: 1, z: 0}
-  _prefab: {fileID: 9115171158272090015, guid: aa06531993cf45c44b47a5c315ac92a0, type: 3}
+  _prefab: {fileID: 9136193240024602598, guid: aa06531993cf45c44b47a5c315ac92a0, type: 3}
   _enemyTarget: {fileID: 1329209238}
+--- !u!114 &145717134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145717126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01c32978c589bc04097b12979aa57801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startPosition: {x: 0, y: 1, z: 0}
+  _prefab: {fileID: -8210465322909802287, guid: 36605a3a0a659ca47ae8c5df26120c06, type: 3}
+  _enemyTarget: {fileID: 1408273314}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,7 +565,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8877ee5b1ed4443bf81b78e102e5ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationCenter: {fileID: 145717131}
 --- !u!1 &1408273309
 GameObject:
   m_ObjectHideFlags: 0
@@ -684,7 +683,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a8877ee5b1ed4443bf81b78e102e5ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rotationCenter: {fileID: 145717131}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

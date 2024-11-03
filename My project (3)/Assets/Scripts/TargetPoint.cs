@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Friend : MonoBehaviour
+public class TargetPoint : MonoBehaviour
 {
     private Vector3 _startPosition;
     private Vector3 _endPosition;
@@ -16,10 +16,10 @@ public class Friend : MonoBehaviour
 
     private void Update()
     {
-        Movement();
+        Move();
     }
 
-    private void Movement()
+    private void Move()
     {
         transform.position = Vector3.Lerp(_startPosition, _endPosition, Mathf.PingPong(_timer, _delay));
         _timer += Time.deltaTime;

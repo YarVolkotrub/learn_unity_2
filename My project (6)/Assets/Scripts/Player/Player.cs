@@ -42,13 +42,11 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out Item item) == false)
+        if (collision.gameObject.TryGetComponent(out Item item))
         {
-            return;
+            _playerInventory.AddItem(item);
+            item.Destroy();
         }
-
-        _playerInventory.AddItem(item);
-        item.Destroy();
     }
 
     private void InitState()
@@ -71,14 +69,16 @@ public class Player : MonoBehaviour
                 _characterState.Change(_jumpState);
             }
 
-            if (_moveDirection == Vector2.zero)
+            if (_moveDirection == Vector2.zero || _controller.Stay)
             {
                 _characterState.Change(_idleState);
             }
 
             if (_moveDirection != Vector2.zero)
             {
-                _runState.Direction = _moveDirection;
+                transform.Translate(_moveDirection * _playerPhysics.RunSpeed * Time.deltaTime, Space.World);
+
+                //_playerPhysics.RigidbodyPlayer.AddForce(_moveDirection * _playerPhysics.RunSpeed, ForceMode2D.Impulse);
                 _characterState.Change(_runState);
             }
         }

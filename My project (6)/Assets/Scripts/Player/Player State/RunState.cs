@@ -19,11 +19,14 @@ public class RunState : IState
 
     public void Enter()
     {
-        _rigidbody.AddForce(Direction * _speed, ForceMode2D.Impulse);
+        
         _animator.Move();
     }
 
-    public void Update() {}
+    public void Update() 
+    {
+        //_rigidbody.AddForce(Direction * _speed, ForceMode2D.Impulse);
+    }
 
     public void Exit() {}
 }

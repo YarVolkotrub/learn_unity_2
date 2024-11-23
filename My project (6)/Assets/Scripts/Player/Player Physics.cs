@@ -3,9 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerPhysics : MonoBehaviour
 {
-    private float _runSpeed = 5f;
+    private float _runSpeed = 3f;
     private float _jumpForce = 7f;
-    private float _fallForce = 30f;
+    private float _fallForce = 3f;
     private float _rayDistance = 0.8f;
     private string _layerGround = "Ground";
     private Rigidbody2D _rigidbody;

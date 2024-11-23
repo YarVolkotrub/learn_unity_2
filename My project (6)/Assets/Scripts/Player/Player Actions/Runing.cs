@@ -9,7 +9,7 @@
 //    private void Run()
 //    {
 //        this.Rigidbody.AddForce(_direction * _speed, ForceMode2D.Impulse);
-//        //Vector2 direction = new Vector2(move, _verticalMove);
-//        //transform.Translate(direction * Character.SpeedRun * Time.deltaTime, Space.World);
+//Vector2 direction = new Vector2(move, _verticalMove);
+//transform.Translate(direction * Character.SpeedRun * Time.deltaTime, Space.World);
 //    }
 //}

@@ -8,8 +8,10 @@ public class PlayerInventory : MonoBehaviour
 
     public void AddItem(Item item)
     {
-        Item copyItem = new Item();
-        _items.Add(copyItem);
-        _money += copyItem.Cost;
+        //Item copyItem = new Item();
+        //Item copyItem = Instantiate(item);
+        //_items.Add(copyItem);
+        //Debug.Log(copyItem.Cost);
+        _money += item.Cost;
     }
 }

@@ -1,11 +1,7 @@
-//using System;
-//using UnityEngine;
+public class Falling : Moving
+{
+    private void Fall()
+    {
 
-//public class Falling : CharacterAction
-//{
-
-//    private void Fall()
-//    {
-//        Debug.Log("Falling");
-//    }
-//}
+    }
+}

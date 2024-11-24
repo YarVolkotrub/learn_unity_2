@@ -1,11 +1,9 @@
-//using UnityEngine;
+using UnityEngine;
 
-//public class Jumping : CharacterAction
-//{
-//    private float _jumpForce;
-
-//    private void Jump()
-//    {
-//        this.Rigidbody.velocity = new Vector2(this.Rigidbody.velocity.x, _jumpForce);
-//    }
-//}
+public class Jumping : Mover
+{
+    private void Jump()
+    {
+        Rigidbody.velocity = new Vector2(Rigidbody.velocity.x, JumpForce);
+    }
+}

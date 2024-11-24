@@ -21,12 +21,12 @@ public class RunState : IState
     {
         
         _animator.Move();
-        //_rigidbody.AddForce(Direction * _speed, ForceMode2D.Impulse);
+
     }
 
     public void Update() 
     {
-        //_rigidbody.AddForce(Direction * _speed, ForceMode2D.Impulse);
+
     }
 
     public void Exit() {}

@@ -19,6 +19,7 @@ public class PlayerPhysics : MonoBehaviour
     public float FallForce => _fallForce;
     public bool IsFalling => _rigidbody.velocity.y < 0;
     public bool IsJumping => _rigidbody.velocity.y > 0;
+    public bool IsRest => _rigidbody.velocity.y == 0;
     public Rigidbody2D RigidbodyPlayer => _rigidbody;
 
     private void Awake()

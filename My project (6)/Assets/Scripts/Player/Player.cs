@@ -57,39 +57,59 @@ public class Player : MonoBehaviour
         _fallState = new FallState(_playerAnimation, _playerPhysics.RigidbodyPlayer, _playerPhysics.FallForce);
     }
 
+    private Vector2 TMPMover()
+    {
+        return new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Jump"));
+    }
+
+    private float tmpSpeed = 5f;
+    private float tmpJumpForce = 7f;
+
     private void ChangeState()
     {
         _moveDirection = _controller.MoveDirection;
+        //_moveDirection = TMPMover()
         _playerPhysics.Flip(_moveDirection);
 
-        if (_playerPhysics.OnGround() == true)
+        if (_playerPhysics.OnGround() == true) // Состояния на земле
         {
-            if (_controller.Jump)
+            // Движение up по Y
+            //if (_controller.Jump)
+            if (_controller.JumpDirection == Vector2.up)
+            //if (_moveDirection == Vector2.up)
             {
                 _characterState.Change(_jumpState);
+                _playerPhysics.RigidbodyPlayer.velocity = new Vector2(_playerPhysics.RigidbodyPlayer.velocity.x, tmpJumpForce);
             }
 
-            if (_moveDirection == Vector2.zero || _controller.Stay)
+            // покой по X,Y
+            if ((_moveDirection == Vector2.zero || _controller.Stay) && _playerPhysics.IsRest)
             {
                 _characterState.Change(_idleState);
+                _playerPhysics.RigidbodyPlayer.velocity = Vector2.zero;
             }
 
-            if (_moveDirection != Vector2.zero)
+            // Движение по X
+            if ((_moveDirection == Vector2.left || _moveDirection == Vector2.right) && _playerPhysics.IsRest)
+            //if (_moveDirection != Vector2.zero)
             {
-                transform.Translate(_moveDirection * _playerPhysics.RunSpeed * Time.deltaTime, Space.World);
-
-                //_playerPhysics.RigidbodyPlayer.AddForce(_moveDirection * _playerPhysics.RunSpeed, ForceMode2D.Impulse);
+                _playerPhysics.RigidbodyPlayer.velocity = new Vector2(10, 0);
+                //transform.Translate(_moveDirection * tmpSpeed * Time.deltaTime, Space.World);
+                _playerPhysics.RigidbodyPlayer.velocity = new Vector2(_moveDirection.x * tmpSpeed, _playerPhysics.RigidbodyPlayer.velocity.y);
+                //_playerPhysics.RigidbodyPlayer.AddForce(_moveDirection * tmpSpeed, ForceMode2D.Impulse);
+                //_playerPhysics.RigidbodyPlayer.AddForce(_moveDirection * tmpSpeed);
+                //transform.Translate(_moveDirection * tmpSpeed * Time.deltaTime);
                 _characterState.Change(_runState);
             }
         }
-        else if (_playerPhysics.OnGround() == false)
+        else if (_playerPhysics.OnGround() == false) // Состояние вне земли
         {
-            if (_playerPhysics.IsFalling)
+            if (_playerPhysics.IsFalling) // velocity.y < 0
             {
                 _characterState.Change(_fallState);
             }
 
-            if (_playerPhysics.IsJumping)
+            if (_playerPhysics.IsJumping) // velocity.y > 0
             {
                 _characterState.Change(_jumpState);
             }

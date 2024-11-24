@@ -15,8 +15,7 @@ public class JumpState : IState
 
     public void Enter()
     {
-        
-        _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _jumpForce);
+        //_rigidbody.velocity = new Vector2(_rigidbody.velocity.x, _jumpForce);
         _animator.Jump();
     }
 

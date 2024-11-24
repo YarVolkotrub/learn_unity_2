@@ -11,10 +11,10 @@ public class StateMachinePlayer : MonoBehaviour
             return;
         }
 
-        //if (_currentState == state)
-        //{
-        //    _currentState.Update();
-        //}
+        if (_currentState == state)
+        {
+            _currentState.Update();
+        }
         else
         {
             if (_currentState != null)

@@ -1,17 +1,15 @@
-using UnityEngine;
-
 public class IdleState : IState
 {
-    PlayerAnimation animator;
+    private PlayerAnimation _animator;
 
     public IdleState(PlayerAnimation animator)
     {
-        this.animator = animator;
+        _animator = animator;
     }
 
     public void Enter()
     {
-        animator.Idle();
+        _animator.Idle();
     }
 
     public void Update() {}

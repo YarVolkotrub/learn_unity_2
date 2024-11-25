@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StateMachinePlayer : MonoBehaviour
+public class StateMachine : MonoBehaviour
 {
     private IState _currentState;
 

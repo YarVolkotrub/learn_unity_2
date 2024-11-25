@@ -1,15 +1,13 @@
-public class FallState : IState
+public class FallState : State
 {
-    private PlayerAnimation _animator;
 
-    public FallState(PlayerAnimation animator)
+    public FallState(PlayerAnimation playerAnimation, Mover mover) : base(playerAnimation, mover)
     {
-        _animator = animator;
     }
 
     public void Enter()
     {
-        _animator.Fall();
+        PlayerAnimation.Fall();
     }
 
     public void Update() {}

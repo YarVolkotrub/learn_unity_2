@@ -1,15 +1,13 @@
-public class IdleState : IState
+public class IdleState : State
 {
-    private PlayerAnimation _animator;
-
-    public IdleState(PlayerAnimation animator)
+    public IdleState(PlayerAnimation playerAnimation, Mover mover) : base(playerAnimation, mover)
     {
-        _animator = animator;
+
     }
 
     public void Enter()
     {
-        _animator.Idle();
+        PlayerAnimation.Idle();
     }
 
     public void Update() {}

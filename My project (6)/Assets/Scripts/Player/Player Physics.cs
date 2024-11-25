@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerPhysics : MonoBehaviour
 {
     [SerializeField] private Transform _groundCheck;
+    [SerializeField] private Transform _ceiling;
     private float _groundRadius = 0.3f;
     private string _layerGround = "Ground";
 
@@ -37,26 +38,8 @@ public class PlayerPhysics : MonoBehaviour
         return Physics2D.OverlapCircle(_groundCheck.position, _groundRadius, LayerMask.GetMask(_layerGround));
     }
 
-    public void Flip(Vector2 position)
+    public bool OnCeiling()
     {
-        float direction = position.x;
-
-        if (_currentPosition == direction)
-        {
-            return;
-        }
-
-        Vector2 rotate = transform.eulerAngles;
-
-        if (_currentPosition > direction)
-        {
-            rotate.y = _rightDirection;
-        }
-        else if (_currentPosition < direction)
-        {
-            rotate.y = _leftDirection;
-        }
-
-        transform.rotation = Quaternion.Euler(rotate);
+        return Physics2D.OverlapCircle(_ceiling.position, _groundRadius, LayerMask.GetMask(_layerGround));
     }
 }

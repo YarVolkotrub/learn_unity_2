@@ -1,17 +1,14 @@
 using UnityEngine;
 
-public class JumpState : IState
+public class JumpState : State
 {
-    private PlayerAnimation _animator;
-
-    public JumpState(PlayerAnimation animator)
+    public JumpState(PlayerAnimation playerAnimation, Mover mover) : base(playerAnimation, mover)
     {
-        _animator = animator;
     }
 
     public void Enter()
     {
-        _animator.Jump();
+        PlayerAnimation.Jump();
     }
 
     public void Update() {}

@@ -32,10 +32,8 @@ public class Mover
         _rigidbody.velocity = Vector2.zero;
     }
 
-    public void Flip(Vector2 position)
+    public void Flip(float direction)
     {
-        float direction = position.x;
-
         if (_currentPosition == direction)
         {
             return;

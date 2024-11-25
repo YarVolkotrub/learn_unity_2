@@ -1,5 +1,9 @@
 using UnityEngine;
 
+[RequireComponent(typeof(InputSystem))]
+[RequireComponent(typeof(StateMachine))]
+[RequireComponent(typeof(PlayerAnimation))]
+[RequireComponent(typeof(PlayerPhysics))]
 public class PlayerStateMachine : MonoBehaviour
 {
     private StateMachine _characterState;
@@ -14,7 +18,7 @@ public class PlayerStateMachine : MonoBehaviour
 
     private Mover _mover;
 
-    private Vector2 _moveDirection;
+    private float _moveDirection;
 
     private void Awake()
     {
@@ -38,54 +42,52 @@ public class PlayerStateMachine : MonoBehaviour
 
     private void InitState()
     {
-        _idleState = new IdleState(_playerAnimation);
-        _runState = new RunState(_playerAnimation);
-        _jumpState = new JumpState(_playerAnimation);
-        _fallState = new FallState(_playerAnimation);
+        _idleState = new IdleState(_playerAnimation, _mover);
+        _runState = new RunState(_playerAnimation, _mover);
+        _jumpState = new JumpState(_playerAnimation, _mover);
+        _fallState = new FallState(_playerAnimation, _mover);
     }
 
     private void ChangeState()
     {
         _moveDirection = _controller.MoveDirection;
-        //_playerPhysics.Flip(_moveDirection);
         _mover.Flip(_moveDirection);
+        Debug.Log(_playerPhysics.RigidbodyPlayer.velocity.y);
 
         if (_playerPhysics.OnGround() == true) // Состояния на земле
         {
             // Движение по X
-            if ((_moveDirection == Vector2.left || _moveDirection == Vector2.right) && _playerPhysics.IsRestUpDown)
+            if ((_moveDirection >= Vector2.left.x || _moveDirection <= Vector2.right.x) && _playerPhysics.IsRestUpDown && _moveDirection != Vector2.zero.x)
             {
-                _mover.Move(_moveDirection.x, _playerPhysics.RunSpeed, _playerPhysics.RigidbodyPlayer.velocity.y);
+                _mover.Move(_moveDirection, _playerPhysics.RunSpeed, _playerPhysics.RigidbodyPlayer.velocity.y);
                 _characterState.Change(_runState);
             }
 
             // Движение up по Y
-            if (_controller.JumpDirection == Vector2.up)
+            if (_controller.JumpDirection == Vector2.up.y)
             {
                 _mover.Jump(_playerPhysics.RigidbodyPlayer.velocity.x, _playerPhysics.JumpForce);
                 _characterState.Change(_jumpState);
             }
 
             // покой по X,Y
-            if ((_moveDirection == Vector2.zero || _controller.Stay) && _playerPhysics.IsRestUpDown)
+            if (((_moveDirection == Vector2.zero.x && _moveDirection == Vector2.zero.y) || _controller.Stay) && _playerPhysics.IsRestUpDown)
             {
                 _mover.Stand();
                 _characterState.Change(_idleState);
             }
-
-
         }
         else if (_playerPhysics.OnGround() == false) // Состояние вне земли
         {
-            if (_playerPhysics.IsFalling) // velocity.y < 0
+            if (_playerPhysics.IsFalling || _playerPhysics.OnCeiling()) // velocity.y < 0
             {
-                _mover.Move(_moveDirection.x, _playerPhysics.FallMoveSpeed, _playerPhysics.RigidbodyPlayer.velocity.y);
+                _mover.Move(_moveDirection, _playerPhysics.FallMoveSpeed, _playerPhysics.RigidbodyPlayer.velocity.y);
                 _characterState.Change(_fallState);
             }
 
             if (_playerPhysics.IsJumping) // velocity.y > 0
             {
-                _mover.Move(_moveDirection.x, _playerPhysics.JumpMoveSpeed, _playerPhysics.RigidbodyPlayer.velocity.y);
+                _mover.Move(_moveDirection, _playerPhysics.JumpMoveSpeed, _playerPhysics.RigidbodyPlayer.velocity.y);
                 _characterState.Change(_jumpState);
             }
         }

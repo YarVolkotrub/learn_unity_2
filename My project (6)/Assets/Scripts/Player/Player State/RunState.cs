@@ -1,15 +1,13 @@
-public class RunState : IState
+public class RunState : State
 {
-    private PlayerAnimation _animator;
-
-    public RunState(PlayerAnimation animator)
+    public RunState(PlayerAnimation playerAnimation, Mover mover) : base(playerAnimation, mover)
     {
-        _animator = animator;
+
     }
 
     public void Enter()
     {
-        _animator.Move();
+        PlayerAnimation.Move();
     }
 
     public void Update() {}

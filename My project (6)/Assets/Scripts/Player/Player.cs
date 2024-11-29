@@ -1,21 +1,64 @@
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerAnimation))]
+[RequireComponent(typeof(PlayerPhysics))]
 [RequireComponent(typeof(PlayerInventory))]
 public class Player : MonoBehaviour
 {
+    private PlayerAnimation _playerAnimation;
+    private PlayerPhysics _playerPhysics;
     private PlayerInventory _playerInventory;
+    private PlayerStateMachine _stateMachine;
+    private Mover _mover;
+    private InputSystem _inputSystem;
 
     private void Awake()
     {
+        _playerAnimation = GetComponent<PlayerAnimation>();
+        _playerPhysics = GetComponent<PlayerPhysics>();
         _playerInventory = GetComponent<PlayerInventory>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void Start()
     {
-        if (collision.gameObject.TryGetComponent(out Item item))
+        _mover = new Mover(_playerPhysics.RigidbodyPlayer, transform);
+        _inputSystem = new InputSystem();
+        _stateMachine = new PlayerStateMachine(_playerAnimation, _mover, _playerPhysics, _inputSystem);
+        _stateMachine.SwitchState<PlayerIdleState>();
+    }
+
+    private void Update()
+    {
+        _stateMachine.Update();
+    }
+
+    private void FixedUpdate()
+    {
+        _stateMachine.FixedUpdate();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.TryGetComponent(out Item item))
         {
-            _playerInventory.AddItem(item);
+            _playerInventory.AddPoints(item);
             item.Destroy();
         }
     }
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.TryGetComponent(out Item item))
+    //    {
+    //        Debug.Log("aaa");
+    //    }
+    //}
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.otherCollider.TryGetComponent(out Player player))
+    //    {
+    //        Debug.Log("aaa");
+    //    }
+    //}
 }

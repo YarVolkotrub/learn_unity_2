@@ -1,36 +1,38 @@
-using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 
-public class StateMachine : MonoBehaviour
+public class PlayerStateMachine : IStateSwitcher, IStateUpdate
 {
-    private IState _currentState;
+    public IState CurrentState;
+    protected List<IState> States;
 
-    //public void Change(IState state)
-    //{
-    //    if (state == null)
-    //    {
-    //        return;
-    //    }
-
-    //    if (_currentState == state)
-    //    {
-    //        _currentState.Update();
-    //    }
-    //    else
-    //    {
-    //        if (_currentState != null)
-    //        {
-    //            _currentState.Exit();
-    //        }
-
-    //        _currentState = state;
-    //        _currentState.Enter();
-    //    }
-    //}
-
-    public void Change(IState state)
+    public PlayerStateMachine(PlayerAnimation playerAnimation, Mover mover, PlayerPhysics playerPhysics, InputSystem inputSystem)
     {
-        _currentState.Exit();
-        _currentState = state;
-        _currentState.Enter();
+        States = new()
+        {
+            new PlayerIdleState(playerAnimation, mover, playerPhysics, this, inputSystem),
+            new PlayerRunState(playerAnimation, mover, playerPhysics,this, inputSystem),
+            new PlayerJumpState(playerAnimation, mover, playerPhysics, this, inputSystem),
+            new PlayerFallState(playerAnimation, mover, playerPhysics, this, inputSystem)
+        };
+    }
+
+    public void Update()
+    {
+        CurrentState.Update();
+    }
+
+    public void FixedUpdate()
+    {
+        CurrentState.FixedUpdate();
+    }
+
+    public void SwitchState<T>() where T : IState
+    {
+        IState state = States.FirstOrDefault(state => state is T);
+
+        CurrentState?.Exit();
+        CurrentState = state;
+        CurrentState.Enter();
     }
 }

@@ -1,17 +1,11 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
 {
-    [SerializeField] private int _money = 0;
-    private List<Item> _items = new List<Item>();
+    [SerializeField] private int _points = 0;
 
-    public void AddItem(Item item)
+    public void AddPoints(Item item)
     {
-        //Item copyItem = new Item();
-        //Item copyItem = Instantiate(item);
-        //_items.Add(copyItem);
-        //Debug.Log(copyItem.Cost);
-        _money += item.Cost;
+        _points += item.Cost;
     }
 }

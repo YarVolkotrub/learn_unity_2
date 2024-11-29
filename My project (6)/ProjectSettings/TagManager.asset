@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Item
+  - Points Cuttrhroat
+  - Points Officer
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -12,9 +15,9 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Coin
+  - Player
+  - Enemy
   - 
   - 
   - 

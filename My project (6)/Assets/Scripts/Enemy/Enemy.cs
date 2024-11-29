@@ -1,20 +1,30 @@
 using UnityEngine;
 
-[RequireComponent(typeof(EnemyPatrol))]
-public class Enemy : MonoBehaviour
+[RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(EnemyAnimation))]
+public abstract class Enemy : MonoBehaviour
 {
-    [SerializeField] private float _speedMove = 2f;
-    [SerializeField] private EnemyPatrol _patrol;
-    [SerializeField] private float _delay = 5f;
-    [SerializeField] private Vector2 _pointForPatrol;
+    protected Rigidbody2D Rigidbody;
+    protected EnemyAnimation EnemyAnimation;
+    protected Mover Mover;
+    protected EnemyStateMachine EnemyStateMachine;
 
-    private void Update()
-    {
-        Patrol();
-    }
+    protected Vector3 StartPosition;
+    protected float SpeedMove;
+    protected float WaitSecond;
+    protected RaycastHit2D View;
+    protected Vector3 Direction;
 
-    private void Patrol()
-    {
-        _patrol.Move(_pointForPatrol, _speedMove, _delay);
-    }
+    [SerializeField] protected GameObject PatrolPointLeft;
+    [SerializeField] protected GameObject PatrolPointRight;
+    [SerializeField] protected bool IsPatrolman;
+    [SerializeField] protected Transform GroundCheck;
+    private string _layerGround = "Ground";
+    private float _groundRadius = 0.05f;
+
+    public float Speed => SpeedMove;
+    public float Wait => WaitSecond;
+    public bool IsPatrol => IsPatrolman;
+    public Rigidbody2D RigidbodyEnemy => Rigidbody;
+    public bool OnGround => Physics2D.OverlapCircle(GroundCheck.position, _groundRadius, LayerMask.GetMask(_layerGround));
 }

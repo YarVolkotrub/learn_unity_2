@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemSpawner : MonoBehaviour
 {
     private ItemPool _pool;
-    [SerializeField] private Item _item;
+    [SerializeField] private ItemFromPool _item;
     [SerializeField] private float _sizeSpawner;
     [SerializeField] private float _delaySpawn = 2;
 
@@ -29,7 +29,8 @@ public class ItemSpawner : MonoBehaviour
         {
             yield return wait;
 
-            Item item = _pool.Get();
+            ItemFromPool item = _pool.Get();
+            item.LifeTimeIsOver += ReturnItemInPool;
             item.transform.position = new Vector2(GetPointSpawn(), transform.position.y);
         }
     }
@@ -37,5 +38,11 @@ public class ItemSpawner : MonoBehaviour
     private float GetPointSpawn()
     {
         return Random.Range(_spawnAreaSizeMin, _spawnAreaSizeMax);
+    }
+
+    private void ReturnItemInPool(ItemFromPool item)
+    {
+        _pool.Return(item);
+        item.LifeTimeIsOver -= ReturnItemInPool;
     }
 }

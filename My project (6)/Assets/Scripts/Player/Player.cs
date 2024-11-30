@@ -41,24 +41,8 @@ public class Player : MonoBehaviour
     {
         if (collider.gameObject.TryGetComponent(out Item item))
         {
-            _playerInventory.AddPoints(item);
+            _playerInventory.AddPoints(item.Cost);
             item.Destroy();
         }
     }
-
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.TryGetComponent(out Item item))
-    //    {
-    //        Debug.Log("aaa");
-    //    }
-    //}
-
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.otherCollider.TryGetComponent(out Player player))
-    //    {
-    //        Debug.Log("aaa");
-    //    }
-    //}
 }

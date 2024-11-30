@@ -6,7 +6,7 @@ public class Officer : Enemy
     {
         EnemyAnimation = GetComponent<EnemyAnimation>();
         Rigidbody = GetComponent<Rigidbody2D>();
-        StartPosition = transform.position;
+
         SpeedMove = 1f;
         WaitSecond = 2f;
     }
@@ -20,7 +20,6 @@ public class Officer : Enemy
 
     private void Update()
     {
-        Debug.DrawRay(transform.position, Vector2.left * 2, Color.red);
         EnemyStateMachine.Update();
     }
 

@@ -7,7 +7,6 @@ public class Cutthroat : Enemy
         EnemyAnimation = GetComponent<EnemyAnimation>();
         Rigidbody = GetComponent<Rigidbody2D>();
         
-        StartPosition = transform.position;
         SpeedMove = 2f;
         WaitSecond = 5f;
     }
@@ -21,7 +20,6 @@ public class Cutthroat : Enemy
     
     private void Update()
     {
-        Debug.DrawRay(transform.position, Vector2.left * 2, Color.red);
         EnemyStateMachine.Update();
     }
 

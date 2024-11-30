@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1219401213810683690}
   - component: {fileID: 1182355495035886897}
   - component: {fileID: -1113322040921649400}
-  - component: {fileID: 3097764647872372731}
+  - component: {fileID: 117843187617243994}
   m_Layer: 0
   m_Name: Crown
   m_TagString: Item
@@ -143,7 +143,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.36, y: 0.3}
   m_Direction: 0
---- !u!114 &3097764647872372731
+--- !u!114 &117843187617243994
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,7 +152,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8073247736978350367}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d44951ef5c9ce14ca1519a646ae903a, type: 3}
+  m_Script: {fileID: 11500000, guid: 20ec8019ddf5e7b43bbc42027d38a634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _cost: 200

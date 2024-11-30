@@ -4,8 +4,8 @@ public class PlayerInventory : MonoBehaviour
 {
     [SerializeField] private int _points = 0;
 
-    public void AddPoints(Item item)
+    public void AddPoints(int points)
     {
-        _points += item.Cost;
+        _points += points;
     }
 }

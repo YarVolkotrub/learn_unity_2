@@ -31,10 +31,7 @@ public class PlayerIdleState : PlayerBaseState
         }
     }
 
-    public override void FixedUpdate() 
-    { 
+    public override void FixedUpdate() { }
 
-    }
-
-    public override void Exit() {}
+    public override void Exit() { }
 }

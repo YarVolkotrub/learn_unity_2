@@ -32,5 +32,5 @@ public class PlayerJumpState : PlayerBaseState
         Move(_moveDirection, PlayerPhysics.JumpMoveSpeed);
     }
 
-    public override void Exit() {}
+    public override void Exit() { }
 }

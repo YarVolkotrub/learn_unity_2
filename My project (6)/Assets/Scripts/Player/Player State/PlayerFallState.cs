@@ -37,5 +37,5 @@ public class PlayerFallState : PlayerBaseState
         Move(_moveDirection, PlayerPhysics.FallMoveSpeed);
     }
 
-    public override void Exit() {}
+    public override void Exit() { }
 }

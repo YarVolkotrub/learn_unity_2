@@ -36,6 +36,4 @@ public class PlayerRunState : PlayerBaseState
     {
         Move(_moveDirection, PlayerPhysics.RunSpeed);
     }
-
-    public override void Exit() { }
 }

@@ -8,6 +8,11 @@ public class ItemFromPool : Item
 
     public event Action<ItemFromPool> LifeTimeIsOver;
 
+    public void Init(float life)
+    {
+        _lifeTime = life;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent(out Ground ground))
@@ -17,15 +22,9 @@ public class ItemFromPool : Item
 
         if (collision.gameObject.TryGetComponent(out Player player))
         {
-            this.Destroy();
+            Destroy();
         }
     }
-
-    public void Init(float life)
-    {
-        _lifeTime = life;
-    }
-
 
     private IEnumerator ÑountdownLife()
     {
@@ -35,7 +34,7 @@ public class ItemFromPool : Item
         {
             yield return wait;
 
-            this.Destroy();
+            Destroy();
         }
     }
 

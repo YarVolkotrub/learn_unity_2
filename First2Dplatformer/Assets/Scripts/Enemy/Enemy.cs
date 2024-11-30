@@ -4,6 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyAnimation))]
 public abstract class Enemy : MonoBehaviour
 {
+    [SerializeField] protected Transform[] _pointsSpots;
+    [SerializeField] protected Transform GroundCheck;
+
     protected Rigidbody2D Rigidbody;
     protected EnemyAnimation EnemyAnimation;
     protected Mover Mover;
@@ -12,10 +15,7 @@ public abstract class Enemy : MonoBehaviour
     protected float SpeedMove;
     protected float WaitSecond;
 
-    [SerializeField] protected Transform[] _pointsSpots;
     private float _minDistanceForTarget = 0.2f;
-
-    [SerializeField] protected Transform GroundCheck;
     private string _layerGround = "Ground";
     private float _groundRadius = 0.05f;
 

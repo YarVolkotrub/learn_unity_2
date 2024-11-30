@@ -2,10 +2,12 @@ using UnityEngine;
 
 public class Officer : Enemy
 {
-    private void Awake()
+    public void Init()
     {
         EnemyAnimation = GetComponent<EnemyAnimation>();
         Rigidbody = GetComponent<Rigidbody2D>();
+        Mover = new Mover(Rigidbody, transform);
+        EnemyStateMachine = new EnemyStateMachine(EnemyAnimation, Mover, this);
 
         SpeedMove = 1f;
         WaitSecond = 2f;
@@ -13,8 +15,6 @@ public class Officer : Enemy
 
     private void Start()
     {
-        Mover = new Mover(Rigidbody, transform);
-        EnemyStateMachine = new EnemyStateMachine(EnemyAnimation, Mover, this);
         EnemyStateMachine.SwitchState<EnemyIdleState>();
     }
 

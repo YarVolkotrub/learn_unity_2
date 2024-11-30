@@ -2,19 +2,18 @@ using UnityEngine;
 
 public class Cutthroat : Enemy
 {
-    private void Awake()
+    public void Init()
     {
         EnemyAnimation = GetComponent<EnemyAnimation>();
         Rigidbody = GetComponent<Rigidbody2D>();
-        
+        Mover = new Mover(Rigidbody, transform);
+        EnemyStateMachine = new EnemyStateMachine(EnemyAnimation, Mover, this);
         SpeedMove = 2f;
         WaitSecond = 5f;
     }
 
     private void Start()
     {
-        Mover = new Mover(Rigidbody, transform);
-        EnemyStateMachine = new EnemyStateMachine(EnemyAnimation, Mover, this);
         EnemyStateMachine.SwitchState<EnemyIdleState>();
     }
     

@@ -12,18 +12,19 @@ public class Player : MonoBehaviour
     private Mover _mover;
     private InputSystem _inputSystem;
 
-    private void Awake()
+    public void Init()
     {
         _playerAnimation = GetComponent<PlayerAnimation>();
         _playerPhysics = GetComponent<PlayerPhysics>();
         _playerInventory = GetComponent<PlayerInventory>();
+
+        _mover = new Mover(_playerPhysics.RigidbodyPlayer, transform);
+        _inputSystem = new InputSystem();
+        _stateMachine = new PlayerStateMachine(_playerAnimation, _mover, _playerPhysics, _inputSystem);
     }
 
     private void Start()
     {
-        _mover = new Mover(_playerPhysics.RigidbodyPlayer, transform);
-        _inputSystem = new InputSystem();
-        _stateMachine = new PlayerStateMachine(_playerAnimation, _mover, _playerPhysics, _inputSystem);
         _stateMachine.SwitchState<PlayerIdleState>();
     }
 

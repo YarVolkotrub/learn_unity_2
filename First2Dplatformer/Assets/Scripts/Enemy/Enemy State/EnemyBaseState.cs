@@ -9,10 +9,10 @@ public abstract class EnemyBaseState : IState
 
     public EnemyBaseState(EnemyAnimation enemyAnimation, Mover mover, EnemyStateMachine stateMachine, Enemy enemy)
     {
-        this.EnemyAnimation = enemyAnimation;
-        this.Mover = mover;
-        this.EnemyStateMachine = stateMachine;
-        this.Enemy = enemy;
+        EnemyAnimation = enemyAnimation;
+        Mover = mover;
+        EnemyStateMachine = stateMachine;
+        Enemy = enemy;
     }
 
     public abstract void Enter(); 

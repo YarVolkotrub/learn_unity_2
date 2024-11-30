@@ -4,20 +4,23 @@ using UnityEngine;
 [RequireComponent(typeof(ItemPool))]
 public class ItemSpawner : MonoBehaviour
 {
-    private ItemPool _pool;
     [SerializeField] private ItemFromPool _item;
     [SerializeField] private float _sizeSpawner;
     [SerializeField] private float _delaySpawn = 2;
+    private ItemPool _pool;
 
     private float _spawnAreaSizeMin;
     private float _spawnAreaSizeMax;
 
-    private void Start()
+    public void Init()
     {
         _pool = GetComponent<ItemPool>();
         _spawnAreaSizeMin = transform.position.x - _sizeSpawner;
         _spawnAreaSizeMax = transform.position.x + _sizeSpawner;
+    }
 
+    private void Start()
+    {
         StartCoroutine(Spawn());
     }
 

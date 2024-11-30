@@ -10,17 +10,17 @@ public abstract class PlayerBaseState : IState
 
     public PlayerBaseState(PlayerAnimation playerAnimation, Mover mover, PlayerPhysics playerPhysics, PlayerStateMachine stateMachine, InputSystem inputSystem)
     {
-        this.PlayerAnimation = playerAnimation;
-        this.Mover = mover;
-        this.PlayerPhysics = playerPhysics;
-        this.StateMachine = stateMachine;
-        this.InputSystem = inputSystem;
+        PlayerAnimation = playerAnimation;
+        Mover = mover;
+        PlayerPhysics = playerPhysics;
+        StateMachine = stateMachine;
+        InputSystem = inputSystem;
     }
 
     public abstract void Enter();
     public abstract void Update();
     public abstract void FixedUpdate();
-    public abstract void Exit();
+    public virtual void Exit() { }
 
     protected virtual void Move(Vector2 moveDirection, float speedMove)
     {

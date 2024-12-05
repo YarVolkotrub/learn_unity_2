@@ -7,14 +7,13 @@ public class PlayerPhysics : MonoBehaviour
     private float _groundRadius = 0.05f;
     private string _layerGround = "Ground";
 
-    private float _runSpeed = 4f;
-    private float _jumpForce = 7f;
-    private float _jumpMoveSpeed = 3f;
-    private float _fallMoveSpeed = 2f;
+    [SerializeField, Range(1, 5)] private float _runSpeed = 4f;
+    [SerializeField, Range(3, 8)] private float _jumpForce = 7f;
+    [SerializeField, Range(1, 5)] private float _jumpMoveSpeed = 3f;
+    [SerializeField, Range(1, 5)] private float _fallMoveSpeed = 2f;
+    [SerializeField, Range(0, 2)] private float _delayDoubleJump = 0.5f;
+    [SerializeField] private Rigidbody2D _rigidbody;
     private bool _isDoubleJump = true;
-    private float _delayDoubleJump = 0.5f;
-
-    private Rigidbody2D _rigidbody;
 
     public float DelayDoubleJump => _delayDoubleJump;
     public Rigidbody2D RigidbodyPlayer => _rigidbody;
@@ -27,11 +26,6 @@ public class PlayerPhysics : MonoBehaviour
     public bool IsJumping => _rigidbody.velocity.y > 0;
     public bool IsRestUpDown => _rigidbody.velocity.y == 0;
     public bool OnGround => Physics2D.OverlapCircle(_groundCheck.position, _groundRadius, LayerMask.GetMask(_layerGround));
-
-    private void Awake()
-    {
-        _rigidbody = GetComponent<Rigidbody2D>();
-    }
 
     public void ActiveDoubleJump()
     {

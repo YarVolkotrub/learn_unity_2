@@ -4,8 +4,8 @@ using UnityEngine;
 public class ItemPool : MonoBehaviour 
 {
     [SerializeField] private ItemFromPool _item;
-    [SerializeField] private int _capacity = 5;
-    [SerializeField] private int _itemLife = 3;
+    [SerializeField, Range(1, 5)] private int _capacity = 5;
+    [SerializeField, Range(1, 5)] private int _itemLife = 3;
     private Queue<ItemFromPool> _items = new();
 
     private void Awake()

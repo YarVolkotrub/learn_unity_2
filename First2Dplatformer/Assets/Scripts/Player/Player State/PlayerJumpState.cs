@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerJumpState : PlayerBaseState
 {
     private Vector2 _moveDirection;
-    public PlayerJumpState(PlayerAnimation playerAnimation, Mover mover, PlayerPhysics playerPhysics, PlayerStateMachine stateMachine, InputSystem inputSystem) 
+    public PlayerJumpState(PlayerAnimation playerAnimation, PlayerMover mover, PlayerPhysics playerPhysics, PlayerStateMachine stateMachine, InputSystem inputSystem) 
         : base(playerAnimation, mover, playerPhysics, stateMachine, inputSystem) { }
 
     public override void Enter()

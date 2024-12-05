@@ -6,19 +6,24 @@ public abstract class Enemy : MonoBehaviour
 {
     [SerializeField] protected Transform[] _pointsSpots;
     [SerializeField] protected Transform GroundCheck;
+    [SerializeField, Range(1, 100)] protected int MaxHealth;
+    [SerializeField, Range(1, 10)] protected float SpeedMove;
+    [SerializeField, Range(1, 10)] protected float WaitSecond;
+    [SerializeField] private Player _playert;
+    [SerializeField] protected Rigidbody2D Rigidbody;
+    [SerializeField] protected EnemyAnimation EnemyAnimation;
 
-    protected Rigidbody2D Rigidbody;
-    protected EnemyAnimation EnemyAnimation;
-    protected Mover Mover;
+    protected int Health;
+    protected Vector2 StartPosition;
+    protected EnemyMover Mover;
     protected EnemyStateMachine EnemyStateMachine;
-
-    protected float SpeedMove;
-    protected float WaitSecond;
 
     private float _minDistanceForTarget = 0.2f;
     private string _layerGround = "Ground";
     private float _groundRadius = 0.05f;
 
+    public ITarget Target => _playert;
+    public Vector2 FirstPointPosition => StartPosition; 
     public float MinDistanceForTarget => _minDistanceForTarget;
     public float Speed => SpeedMove;
     public float Wait => WaitSecond;

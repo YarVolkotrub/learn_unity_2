@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -1339339404, guid: af40cc527a886b642a0c12b2024f81a5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.61, y: 1.25}
@@ -133,7 +133,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3972819456062843623}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -151,7 +151,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 6
+  m_Constraints: 4
 --- !u!95 &271872331922497633
 Animator:
   serializedVersion: 5
@@ -198,10 +198,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b112f6f8ef28cdb4f87aa1564a66a39d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PatrolPointLeft: {fileID: 0}
-  PatrolPointRight: {fileID: 0}
-  IsPatrolman: 0
+  _pointsSpots:
+  - {fileID: 0}
+  - {fileID: 0}
   GroundCheck: {fileID: 1932181053399977960}
+  MaxHealth: 0
 --- !u!1 &6665613069391533000
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +228,7 @@ Transform:
   m_GameObject: {fileID: 6665613069391533000}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.366, y: -0.603, z: 0.087367766}
+  m_LocalPosition: {x: 0.428, y: -0.628, z: 0.087367766}
   m_LocalScale: {x: 0.8434547, y: 0.8465966, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

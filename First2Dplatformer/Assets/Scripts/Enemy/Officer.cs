@@ -4,13 +4,13 @@ public class Officer : Enemy
 {
     public void Init()
     {
-        EnemyAnimation = GetComponent<EnemyAnimation>();
-        Rigidbody = GetComponent<Rigidbody2D>();
-        Mover = new Mover(Rigidbody, transform);
+        Mover = new EnemyMover(Rigidbody, transform);
         EnemyStateMachine = new EnemyStateMachine(EnemyAnimation, Mover, this);
 
+        StartPosition = transform.position;
         SpeedMove = 1f;
         WaitSecond = 2f;
+        Health = MaxHealth;
     }
 
     private void Start()

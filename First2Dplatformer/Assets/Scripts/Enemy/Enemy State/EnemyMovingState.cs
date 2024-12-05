@@ -3,21 +3,24 @@ using UnityEngine;
 public class EnemyMovingState : EnemyBaseState
 {
     private int _spot = 1;
-    private Vector2 _moveDirection;
+    [SerializeField] private float _distance = 10f;
 
-    public EnemyMovingState(EnemyAnimation enemyAnimation, Mover mover, EnemyStateMachine stateMachine, Enemy enemy) 
+    public EnemyMovingState(EnemyAnimation enemyAnimation, EnemyMover mover, EnemyStateMachine stateMachine, Enemy enemy) 
         : base(enemyAnimation, mover, stateMachine, enemy) { }
 
     public override void Enter()
     {
         EnemyAnimation.Move();
         _spot = (_spot == 1) ? 0 : 1;
-        Flip();
+        Direction = Mover.SetDirection(Enemy.PointsSpots[_spot].position.x);
+        Mover.Flip(Direction);
     }
 
     public override void Update()
     {
-        if ((Vector2.Distance(Enemy.transform.position, Enemy.PointsSpots[_spot].position) < Enemy.MinDistanceForTarget) || Enemy.OnGround == false)
+        SeachPlayer();
+        
+        if (Mover.IsEndPoint(Enemy.PointsSpots[_spot].position, Enemy.MinDistanceForTarget) || Enemy.OnGround == false)
         {
             EnemyStateMachine.SwitchState<EnemyIdleState>();
         }
@@ -25,23 +28,22 @@ public class EnemyMovingState : EnemyBaseState
 
     public override void FixedUpdate() 
     {
-        Enemy.transform.position = Vector2.MoveTowards(Enemy.transform.position, Enemy.PointsSpots[_spot].position, Enemy.Speed * Time.fixedDeltaTime);
+        Mover.Move(Enemy.PointsSpots[_spot].position, Enemy.Speed);
     }
 
-    public override void Exit() { }
+    
 
-    private void Flip()
+    public void SeachPlayer()
     {
-        if (Enemy.transform.position.x < Enemy.PointsSpots[_spot].position.x)
-        {
-            _moveDirection = Vector2.left;
-        }
-        else
-        {
-            _moveDirection = Vector2.right;
-
-        }
-
-        Mover.Flip(_moveDirection);
+        //RaycastHit2D raycastHit2D = Physics2D.Raycast(Enemy.transform.position, Direction, _distance, LayerMask.GetMask("Player"));
+        //Debug.DrawRay(Enemy.transform.position, Direction * _distance, Color.red);
+        //if (raycastHit2D.collider != null)
+        //{
+        //    if (raycastHit2D.collider.gameObject.tag == "Player")
+        //    {
+        //        EnemyStateMachine.SwitchState<EnemyFollowState>();
+        //    }
+        //}
     }
+    public override void Exit() { }
 }

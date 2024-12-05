@@ -3,15 +3,17 @@ using System.Linq;
 
 public class EnemyStateMachine : IStateSwitcher, IStateUpdate
 {
-    public IState CurrentState;
+    public IState CurrentState { get; private set; }
     protected List<IState> States;
 
-    public EnemyStateMachine(EnemyAnimation enemyAnimation, Mover mover, Enemy enemy)
+    public EnemyStateMachine(EnemyAnimation enemyAnimation, EnemyMover mover, Enemy enemy)
     {
         States = new()
         {
             new EnemyIdleState(enemyAnimation, mover, this, enemy),
-            new EnemyMovingState(enemyAnimation, mover, this, enemy)
+            new EnemyMovingState(enemyAnimation, mover, this, enemy),
+            new EnemyFollowState(enemyAnimation, mover, this, enemy),
+            new EnemyReturnStartPointState(enemyAnimation, mover, this, enemy)
         };
     }
 

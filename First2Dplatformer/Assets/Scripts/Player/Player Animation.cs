@@ -9,6 +9,7 @@ public class PlayerAnimation : MonoBehaviour
     private string _jump = "Jumping";
     private string _fall = "Falling";
     private string _idle = "Idle";
+    private string _attack = "Attack";
 
     public void Move()
     {
@@ -28,5 +29,10 @@ public class PlayerAnimation : MonoBehaviour
     public void Idle()
     {
         _animator.SetTrigger(_idle);
+    }
+
+    public void Attack()
+    {
+        _animator.SetTrigger(_attack);
     }
 }

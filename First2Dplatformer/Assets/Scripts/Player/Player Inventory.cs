@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerInventory : MonoBehaviour
+public class PlayerInventory
 {
     [SerializeField] private int _points = 0;
 

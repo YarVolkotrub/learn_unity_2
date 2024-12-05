@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9129712509099584547}
   - component: {fileID: 5995268046777373537}
   - component: {fileID: 8521115038327638240}
-  - component: {fileID: 5696128169543434238}
+  - component: {fileID: 6473475734787640674}
   m_Layer: 8
   m_Name: Cutthroat
   m_TagString: Untagged
@@ -46,7 +46,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3567222713414677887}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -108,7 +108,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 1780553830, guid: 1d00a07c764d11743a378e8ceacc768a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.73, y: 0.99}
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 5995268046777373537}
---- !u!114 &5696128169543434238
+--- !u!114 &6473475734787640674
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -198,10 +198,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b508d3ed83396e4192400ecd801f5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PatrolPointLeft: {fileID: 0}
-  PatrolPointRight: {fileID: 0}
-  IsPatrolman: 0
+  _pointsSpots:
+  - {fileID: 0}
+  - {fileID: 0}
   GroundCheck: {fileID: 5559397931006898211}
+  MaxHealth: 0
+  SpeedMove: 0
+  WaitSecond: 0
+  _playert: {fileID: 0}
 --- !u!1 &8260538908110211042
 GameObject:
   m_ObjectHideFlags: 0
@@ -227,7 +231,7 @@ Transform:
   m_GameObject: {fileID: 8260538908110211042}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.392, y: -0.463, z: 0.15528916}
+  m_LocalPosition: {x: 0.489, y: -0.536, z: 0.15528916}
   m_LocalScale: {x: 0.73286915, y: 0.6729023, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

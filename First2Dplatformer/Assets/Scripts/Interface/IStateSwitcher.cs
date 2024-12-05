@@ -2,4 +2,3 @@
 {
     public void SwitchState<T>() where T : IState;
 }
-

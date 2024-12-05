@@ -7,6 +7,7 @@ public class EnemyAnimation : MonoBehaviour
 
     private string _move = "Moving";
     private string _idle = "Idle";
+    private string _attack = "Attack";
 
     public void Move()
     {
@@ -16,5 +17,10 @@ public class EnemyAnimation : MonoBehaviour
     public void Idle()
     {
         _animator.SetTrigger(_idle);
+    }
+
+    public void Attack()
+    {
+        _animator.SetTrigger(_attack);
     }
 }

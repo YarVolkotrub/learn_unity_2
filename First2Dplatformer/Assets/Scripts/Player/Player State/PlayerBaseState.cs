@@ -3,12 +3,12 @@ using UnityEngine;
 public abstract class PlayerBaseState : IState
 {
     protected PlayerAnimation PlayerAnimation;
-    protected Mover Mover;
+    protected PlayerMover Mover;
     protected PlayerPhysics PlayerPhysics;
     protected PlayerStateMachine StateMachine;
     protected InputSystem InputSystem;
 
-    public PlayerBaseState(PlayerAnimation playerAnimation, Mover mover, PlayerPhysics playerPhysics, PlayerStateMachine stateMachine, InputSystem inputSystem)
+    public PlayerBaseState(PlayerAnimation playerAnimation, PlayerMover mover, PlayerPhysics playerPhysics, PlayerStateMachine stateMachine, InputSystem inputSystem)
     {
         PlayerAnimation = playerAnimation;
         Mover = mover;

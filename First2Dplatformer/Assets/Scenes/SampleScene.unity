@@ -249,7 +249,7 @@ GameObject:
   m_Layer: 0
   m_Name: PointRight
   m_TagString: Points Cuttrhroat
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
@@ -280,7 +280,7 @@ GameObject:
   m_Layer: 0
   m_Name: PointLeft
   m_TagString: Points Cuttrhroat
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
@@ -464,6 +464,18 @@ PrefabInstance:
     - target: {fileID: 3567222713414677887, guid: 49dc762a0f2dd6d4e93e054e508cd9ec, type: 3}
       propertyPath: m_Name
       value: Cutthroat
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559397931006898211, guid: 49dc762a0f2dd6d4e93e054e508cd9ec, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.399
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559397931006898211, guid: 49dc762a0f2dd6d4e93e054e508cd9ec, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.661
+      objectReference: {fileID: 0}
+    - target: {fileID: 5559397931006898211, guid: 49dc762a0f2dd6d4e93e054e508cd9ec, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.08736777
       objectReference: {fileID: 0}
     - target: {fileID: 5692263030220663356, guid: 49dc762a0f2dd6d4e93e054e508cd9ec, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5072,6 +5084,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1932181053399977960, guid: da156c963632d52488b9d17e1ae846ce, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.399
+      objectReference: {fileID: 0}
+    - target: {fileID: 1932181053399977960, guid: da156c963632d52488b9d17e1ae846ce, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.661
+      objectReference: {fileID: 0}
     - target: {fileID: 3972819456062843623, guid: da156c963632d52488b9d17e1ae846ce, type: 3}
       propertyPath: m_Name
       value: Officer

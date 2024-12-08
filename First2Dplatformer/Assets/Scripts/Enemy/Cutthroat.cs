@@ -5,7 +5,8 @@ public class Cutthroat : Enemy
     public void Init()
     {
         Mover = new EnemyMover(Rigidbody, transform);
-        EnemyStateMachine = new EnemyStateMachine(EnemyAnimation, Mover, this);
+        View = new EnemyView();
+        EnemyStateMachine = new EnemyStateMachine(View, EnemyAnimation, Mover, this);
 
         StartPosition = transform.position;
         SpeedMove = 2f;
@@ -26,5 +27,15 @@ public class Cutthroat : Enemy
     private void FixedUpdate()
     {
         EnemyStateMachine.FixedUpdate();
+    }
+
+    public void OnAnimationEvent()
+    {
+        Debug.Log("Animation Event Triggered!");
+    }
+
+    private void Attack()
+    {
+
     }
 }

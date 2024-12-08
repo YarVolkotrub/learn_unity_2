@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public abstract class PlayerBaseState : IState
+public abstract class PlayerMovingBaseState : IState
 {
     protected PlayerAnimation PlayerAnimation;
     protected PlayerMover Mover;
     protected PlayerPhysics PlayerPhysics;
-    protected PlayerStateMachine StateMachine;
-    protected InputSystem InputSystem;
+    protected PlayerMovingStateMachine StateMachine;
+    protected InputReader InputSystem;
 
-    public PlayerBaseState(PlayerAnimation playerAnimation, PlayerMover mover, PlayerPhysics playerPhysics, PlayerStateMachine stateMachine, InputSystem inputSystem)
+    public PlayerMovingBaseState(PlayerAnimation playerAnimation, PlayerMover mover, PlayerPhysics playerPhysics, PlayerMovingStateMachine stateMachine, InputReader inputSystem)
     {
         PlayerAnimation = playerAnimation;
         Mover = mover;

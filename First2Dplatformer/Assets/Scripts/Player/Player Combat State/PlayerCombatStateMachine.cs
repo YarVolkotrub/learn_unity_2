@@ -1,19 +1,16 @@
 using System.Collections.Generic;
 using System.Linq;
 
-public class EnemyStateMachine : IStateSwitcher, IStateUpdate
+public class PlayerCombatStateMachine : IStateSwitcher, IStateUpdate
 {
     public IState CurrentState { get; private set; }
     protected List<IState> States;
 
-    public EnemyStateMachine(EnemyView view, EnemyAnimation enemyAnimation, EnemyMover mover, Enemy enemy)
+    public PlayerCombatStateMachine(PlayerAnimation playerAnimation, PlayerPhysics playerPhysics, InputReader inputSystem)
     {
         States = new()
         {
-            new EnemyIdleState(view, enemyAnimation, mover, this, enemy),
-            new EnemyMovingState(view, enemyAnimation, mover, this, enemy),
-            new EnemyFollowState(view, enemyAnimation, mover, this, enemy),
-            new EnemyAttackState(view, enemyAnimation, mover, this, enemy)
+            //new PlayerCombatIdleState(playerAnimation, playerPhysics, inputSystem, this)
         };
     }
 

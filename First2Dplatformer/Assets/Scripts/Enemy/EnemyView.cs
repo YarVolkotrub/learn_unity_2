@@ -1,19 +1,29 @@
 using UnityEngine;
 
-public class EnemyView : MonoBehaviour
+public class EnemyView
 {
-    [SerializeField] private float _distance = 5f;
+    private Vector2 _direction = Vector2.right;
+    private float _distance = 3f;
+    private string _layerPlayer = "Player";
 
-    public void SeachPlayer(Vector2 direction)
+    public float Distance => _distance;
+    public Vector2 Direction => _direction;
+
+    public bool IsSeachPlayer(Vector2 position, Vector2 direction)
     {
-        RaycastHit2D raycastHit2D = Physics2D.Raycast(transform.position, direction, _distance, LayerMask.GetMask("Player"));
+        RaycastHit2D raycastHit2D = Physics2D.Raycast(position, direction, _distance, LayerMask.GetMask(_layerPlayer));
+        //RaycastHit2D raycastHit2D = Physics2D.Raycast(position, direction, _distance);
 
         if (raycastHit2D.collider != null)
         {
-            if (raycastHit2D.collider.gameObject.tag == "Player")
-            {
-                Debug.Log("Hit Hit");
-            }
+            return true;
         }
+
+        return false;
+    }
+
+    public void SetDirection(Vector2 direction)
+    {
+        _direction = direction;
     }
 }

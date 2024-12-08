@@ -1,46 +1,29 @@
-using Unity.VisualScripting;
-using UnityEngine;
-
 public class EnemyFollowState : EnemyBaseState
 {
-    [SerializeField] private float _distance = 10f;
-
-    public EnemyFollowState(EnemyAnimation enemyAnimation, EnemyMover mover, EnemyStateMachine stateMachine, Enemy enemy) 
-        : base(enemyAnimation, mover, stateMachine, enemy) { }
+    public EnemyFollowState(EnemyView view, EnemyAnimation enemyAnimation, EnemyMover mover, EnemyStateMachine stateMachine, Enemy enemy) 
+        : base(view, enemyAnimation, mover, stateMachine, enemy) { }
 
     public override void Enter()
     {
-
+        EnemyAnimation.Move();
     }
 
     public override void Update()
     {
         
-
     }
 
     public override void FixedUpdate() 
     {
-        SeachPlayer();
+        if ((Enemy.OnGround == false) || (View.IsSeachPlayer(Enemy.transform.position, View.Direction) == false))
+        {
+            EnemyStateMachine.SwitchState<EnemyIdleState>();
+        }
+        else
+        {
+            Mover.Move(Enemy.Target.Position, Enemy.Speed);
+        }
     }
 
     public override void Exit() { }
-
-    public void SeachPlayer()
-    {
-        //RaycastHit2D raycastHit2D = Physics2D.Raycast(Enemy.transform.position, Direction, _distance, LayerMask.GetMask("Player"));
-
-        //if (raycastHit2D.collider != null)
-        //{
-        //    if (raycastHit2D.collider.gameObject.tag == "Player")
-        //    {
-        //        Vector2 target = Enemy.Target.Position;
-        //        Mover.Move(target, Enemy.Speed);
-        //    }
-        //}
-        //else
-        //{
-        //    EnemyStateMachine.SwitchState<EnemyIdleState>();
-        //}
-    }
 }

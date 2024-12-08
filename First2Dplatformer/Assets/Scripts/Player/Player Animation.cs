@@ -9,7 +9,8 @@ public class PlayerAnimation : MonoBehaviour
     private string _jump = "Jumping";
     private string _fall = "Falling";
     private string _idle = "Idle";
-    private string _attack = "Attack";
+    private string _meleeAttack = "MeleeAttack";
+    private string _rangeAttack = "RangeAttack";
 
     public void Move()
     {
@@ -31,8 +32,13 @@ public class PlayerAnimation : MonoBehaviour
         _animator.SetTrigger(_idle);
     }
 
-    public void Attack()
+    public void MeleeAttack()
     {
-        _animator.SetTrigger(_attack);
+        _animator.SetTrigger(_meleeAttack);
+    }
+
+    public void RangeAttack()
+    {
+        _animator.SetTrigger(_rangeAttack);
     }
 }

@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class PlayerFallState : PlayerBaseState
+public class PlayerFallState : PlayerMovingBaseState
 {
     private Vector2 _moveDirection;
     private float _timer;
 
-    public PlayerFallState(PlayerAnimation playerAnimation, PlayerMover mover, PlayerPhysics playerPhysics, PlayerStateMachine stateMachine, InputSystem inputSystem) 
+    public PlayerFallState(PlayerAnimation playerAnimation, PlayerMover mover, PlayerPhysics playerPhysics, PlayerMovingStateMachine stateMachine, InputReader inputSystem) 
         : base(playerAnimation, mover, playerPhysics, stateMachine, inputSystem) { }
 
     public override void Enter()

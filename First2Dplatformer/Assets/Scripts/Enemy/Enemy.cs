@@ -17,6 +17,7 @@ public abstract class Enemy : MonoBehaviour
     protected Vector2 StartPosition;
     protected EnemyMover Mover;
     protected EnemyStateMachine EnemyStateMachine;
+    protected EnemyView View;
 
     private float _minDistanceForTarget = 0.2f;
     private string _layerGround = "Ground";

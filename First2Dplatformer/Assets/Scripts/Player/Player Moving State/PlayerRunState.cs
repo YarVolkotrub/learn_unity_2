@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class PlayerRunState : PlayerBaseState
+public class PlayerRunState : PlayerMovingBaseState
 {
     private Vector2 _moveDirection;
 
-    public PlayerRunState(PlayerAnimation playerAnimation, PlayerMover mover, PlayerPhysics playerPhysics, PlayerStateMachine stateMachine, InputSystem inputSystem) 
+    public PlayerRunState(PlayerAnimation playerAnimation, PlayerMover mover, PlayerPhysics playerPhysics, PlayerMovingStateMachine stateMachine, InputReader inputSystem) 
         : base(playerAnimation, mover, playerPhysics, stateMachine, inputSystem) { }
 
     public override void Enter()
@@ -29,11 +29,6 @@ public class PlayerRunState : PlayerBaseState
         if (PlayerPhysics.OnGround == false && PlayerPhysics.IsFalling)
         {
             StateMachine.SwitchState<PlayerFallState>();
-        }
-
-        if (InputSystem.IsAttack)
-        {
-            StateMachine.SwitchState<PlayerAttackState>();
         }
     }
 

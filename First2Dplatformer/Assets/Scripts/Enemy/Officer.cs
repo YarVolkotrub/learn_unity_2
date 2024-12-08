@@ -5,7 +5,8 @@ public class Officer : Enemy
     public void Init()
     {
         Mover = new EnemyMover(Rigidbody, transform);
-        EnemyStateMachine = new EnemyStateMachine(EnemyAnimation, Mover, this);
+        View = new EnemyView();
+        EnemyStateMachine = new EnemyStateMachine(View, EnemyAnimation, Mover, this);
 
         StartPosition = transform.position;
         SpeedMove = 1f;

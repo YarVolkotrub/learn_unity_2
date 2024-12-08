@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class PlayerIdleState : PlayerBaseState
+public class PlayerIdleState : PlayerMovingBaseState
 {
     float _moveDirection;
-    public PlayerIdleState(PlayerAnimation playerAnimation, PlayerMover mover, PlayerPhysics playerPhysics, PlayerStateMachine stateMachine, InputSystem inputSystem) 
+    public PlayerIdleState(PlayerAnimation playerAnimation, PlayerMover mover, PlayerPhysics playerPhysics, PlayerMovingStateMachine stateMachine, InputReader inputSystem) 
         : base(playerAnimation, mover, playerPhysics, stateMachine, inputSystem) { }
 
     public override void Enter()
@@ -28,11 +28,6 @@ public class PlayerIdleState : PlayerBaseState
         if (PlayerPhysics.OnGround == false && PlayerPhysics.IsFalling)
         {
             StateMachine.SwitchState<PlayerFallState>();
-        }
-
-        if (InputSystem.IsAttack)
-        {
-            StateMachine.SwitchState<PlayerAttackState>();
         }
     }
 

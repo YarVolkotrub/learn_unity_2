@@ -3,12 +3,12 @@ using UnityEngine;
 public abstract class PlayerMovingBaseState : IState
 {
     protected PlayerAnimation PlayerAnimation;
-    protected PlayerMover Mover;
+    protected IMover Mover;
     protected PlayerPhysics PlayerPhysics;
-    protected PlayerMovingStateMachine StateMachine;
-    protected InputReader InputSystem;
+    protected IStateSwitcher StateMachine;
+    protected IInputSystem InputSystem;
 
-    public PlayerMovingBaseState(PlayerAnimation playerAnimation, PlayerMover mover, PlayerPhysics playerPhysics, PlayerMovingStateMachine stateMachine, InputReader inputSystem)
+    public PlayerMovingBaseState(PlayerAnimation playerAnimation, IMover mover, PlayerPhysics playerPhysics, IStateSwitcher stateMachine, IInputSystem inputSystem)
     {
         PlayerAnimation = playerAnimation;
         Mover = mover;
@@ -20,7 +20,7 @@ public abstract class PlayerMovingBaseState : IState
     public abstract void Enter();
     public abstract void Update();
     public abstract void FixedUpdate();
-    public virtual void Exit() { }
+    public virtual void Exit() {}
 
     protected virtual void Move(Vector2 moveDirection, float speedMove)
     {

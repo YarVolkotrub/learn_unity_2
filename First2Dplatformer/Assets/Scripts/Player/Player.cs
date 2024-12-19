@@ -4,24 +4,25 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerPhysics))]
 public class Player : MonoBehaviour, ITarget
 {
-    [SerializeField, Range(1, 100)] private int _health;
+    [SerializeField, Range(1, 100)] private int _healthPoint;
     [SerializeField] private PlayerAnimation _playerAnimation;
     [SerializeField] private PlayerPhysics _playerPhysics;
-    private PlayerInventory _playerInventory;
+
+    private IPlayerInventory _playerInventory;
+    private IMover _mover;
+    private IInputSystem _inputSystem;
+    private IPlayerHealth _health;
     private PlayerMovingStateMachine _stateMachine;
-    private PlayerMover _mover;
-    private InputReader _inputSystem;
-    private PlayerCombat _playerCombat;
 
     public Vector2 Position => transform.position;
 
     public void Init()
     {
+        _health = new PlayerHealth(_healthPoint);
         _playerInventory = new PlayerInventory();
         _mover = new PlayerMover(_playerPhysics.RigidbodyPlayer, transform);
         _inputSystem = new InputReader();
         _stateMachine = new PlayerMovingStateMachine(_playerAnimation, _mover, _playerPhysics, _inputSystem);
-        _playerCombat = new PlayerCombat(_inputSystem, _playerAnimation, _playerPhysics);
     }
 
     private void Start()
@@ -32,8 +33,6 @@ public class Player : MonoBehaviour, ITarget
     private void Update()
     {
         _stateMachine.Update();
-
-        _playerCombat.Attack();
     }
 
     private void FixedUpdate()
@@ -48,5 +47,16 @@ public class Player : MonoBehaviour, ITarget
             _playerInventory.AddPoints(item.Cost);
             item.Destroy();
         }
+
+        if (collider.gameObject.TryGetComponent(out FirstAidKit firstAidKit))
+        {
+            _health.Heal(firstAidKit.HealPoint);
+            firstAidKit.Destroy();
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        _health.TakeDamage(damage);
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class PlayerPhysics : MonoBehaviour
+public class PlayerPhysics : MonoBehaviour, ICheckOnGround, IPlayerPhysics
 {
     [SerializeField] private Transform _groundCheck;
     private float _groundRadius = 0.05f;
@@ -25,6 +25,7 @@ public class PlayerPhysics : MonoBehaviour
     public bool IsFalling => _rigidbody.velocity.y < 0;
     public bool IsJumping => _rigidbody.velocity.y > 0;
     public bool IsRestUpDown => _rigidbody.velocity.y == 0;
+    public bool IsMove => _rigidbody.velocity.x != 0;
     public bool OnGround => Physics2D.OverlapCircle(_groundCheck.position, _groundRadius, LayerMask.GetMask(_layerGround));
 
     public void ActiveDoubleJump()

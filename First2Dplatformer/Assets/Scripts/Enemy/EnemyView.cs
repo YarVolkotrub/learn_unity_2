@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyView
+public class EnemyView : IEnemyView
 {
     private Vector2 _direction = Vector2.right;
     private float _distance = 3f;
@@ -12,7 +12,6 @@ public class EnemyView
     public bool IsSeachPlayer(Vector2 position, Vector2 direction)
     {
         RaycastHit2D raycastHit2D = Physics2D.Raycast(position, direction, _distance, LayerMask.GetMask(_layerPlayer));
-        //RaycastHit2D raycastHit2D = Physics2D.Raycast(position, direction, _distance);
 
         if (raycastHit2D.collider != null)
         {

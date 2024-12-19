@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerJumpState : PlayerMovingBaseState
 {
     private Vector2 _moveDirection;
-    public PlayerJumpState(PlayerAnimation playerAnimation, PlayerMover mover, PlayerPhysics playerPhysics, PlayerMovingStateMachine stateMachine, InputReader inputSystem) 
+    public PlayerJumpState(PlayerAnimation playerAnimation, IMover mover, PlayerPhysics playerPhysics, IStateSwitcher stateMachine, IInputSystem inputSystem) 
         : base(playerAnimation, mover, playerPhysics, stateMachine, inputSystem) { }
 
     public override void Enter()
@@ -20,8 +20,7 @@ public class PlayerJumpState : PlayerMovingBaseState
         {
             StateMachine.SwitchState<PlayerFallState>();
         }
-
-        if (PlayerPhysics.OnGround && PlayerPhysics.IsJumping == false)
+        else if (PlayerPhysics.OnGround && PlayerPhysics.IsJumping == false)
         {
             StateMachine.SwitchState<PlayerIdleState>();
         }

@@ -10,7 +10,8 @@ public class PlayerAnimation : MonoBehaviour
     private string _fall = "Falling";
     private string _idle = "Idle";
     private string _meleeAttack = "MeleeAttack";
-    private string _rangeAttack = "RangeAttack";
+
+    public float Lenght => _animator.GetCurrentAnimatorStateInfo(0).length;
 
     public void Move()
     {
@@ -35,10 +36,5 @@ public class PlayerAnimation : MonoBehaviour
     public void MeleeAttack()
     {
         _animator.SetTrigger(_meleeAttack);
-    }
-
-    public void RangeAttack()
-    {
-        _animator.SetTrigger(_rangeAttack);
     }
 }

@@ -5,7 +5,7 @@ public class PlayerFallState : PlayerMovingBaseState
     private Vector2 _moveDirection;
     private float _timer;
 
-    public PlayerFallState(PlayerAnimation playerAnimation, PlayerMover mover, PlayerPhysics playerPhysics, PlayerMovingStateMachine stateMachine, InputReader inputSystem) 
+    public PlayerFallState(PlayerAnimation playerAnimation, IMover mover, PlayerPhysics playerPhysics, IStateSwitcher stateMachine, IInputSystem inputSystem) 
         : base(playerAnimation, mover, playerPhysics, stateMachine, inputSystem) { }
 
     public override void Enter()
@@ -22,8 +22,7 @@ public class PlayerFallState : PlayerMovingBaseState
         {
             StateMachine.SwitchState<PlayerIdleState>();
         }
-
-        if (PlayerPhysics.IsDoubleJump && InputSystem.JumpDirection == Vector2.up && _timer >= PlayerPhysics.DelayDoubleJump)
+        else if (PlayerPhysics.IsDoubleJump && InputSystem.JumpDirection == Vector2.up && _timer >= PlayerPhysics.DelayDoubleJump)
         {
             PlayerPhysics.DisableDoubleJump();
             StateMachine.SwitchState<PlayerJumpState>();

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyMover
+public class EnemyMover: IEnemyMover
 {
     private Rigidbody2D _rigidbody;
     private Transform _transform;

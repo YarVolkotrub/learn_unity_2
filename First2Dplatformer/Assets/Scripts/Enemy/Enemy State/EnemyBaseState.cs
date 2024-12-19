@@ -1,14 +1,12 @@
-using UnityEngine;
-
 public abstract class EnemyBaseState : IState
 {
-    protected EnemyView View;
-    protected EnemyAnimation EnemyAnimation;
-    protected EnemyMover Mover;
-    protected EnemyStateMachine EnemyStateMachine;
+    protected IEnemyView View;
+    protected IEnemyAnimation EnemyAnimation;
+    protected IEnemyMover Mover;
+    protected IStateSwitcher EnemyStateMachine;
     protected Enemy Enemy;
 
-    public EnemyBaseState(EnemyView view, EnemyAnimation enemyAnimation, EnemyMover mover, EnemyStateMachine stateMachine, Enemy enemy)
+    public EnemyBaseState(IEnemyView view, IEnemyAnimation enemyAnimation, IEnemyMover mover, IStateSwitcher stateMachine, Enemy enemy)
     {
         View = view;
         EnemyAnimation = enemyAnimation;
@@ -20,6 +18,6 @@ public abstract class EnemyBaseState : IState
     public abstract void Enter();
     public abstract void Update();
     public abstract void FixedUpdate();
-    public abstract void Exit();
+    public void Exit() { }
 
 }

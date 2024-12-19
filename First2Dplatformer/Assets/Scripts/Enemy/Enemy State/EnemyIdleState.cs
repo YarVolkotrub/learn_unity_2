@@ -4,7 +4,7 @@ public class EnemyIdleState : EnemyBaseState
 {
     private float _timer;
 
-    public EnemyIdleState(EnemyView view, EnemyAnimation enemyAnimation, EnemyMover mover, EnemyStateMachine stateMachine, Enemy enemy) 
+    public EnemyIdleState(IEnemyView view, IEnemyAnimation enemyAnimation, IEnemyMover mover, IStateSwitcher stateMachine, Enemy enemy) 
         : base(view, enemyAnimation, mover, stateMachine, enemy) { }
 
     public override void Enter()
@@ -16,8 +16,6 @@ public class EnemyIdleState : EnemyBaseState
 
     public override void Update()
     {
-        Debug.DrawRay(Enemy.transform.position, View.Direction * View.Distance, Color.red);
-
         if (Enemy.OnGround && View.IsSeachPlayer(Enemy.transform.position, View.Direction))
         {
             EnemyStateMachine.SwitchState<EnemyFollowState>();
@@ -32,6 +30,4 @@ public class EnemyIdleState : EnemyBaseState
     }
 
     public override void FixedUpdate() { }
-
-    public override void Exit() { }
 }

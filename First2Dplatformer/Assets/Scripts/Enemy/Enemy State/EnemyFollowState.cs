@@ -1,6 +1,6 @@
 public class EnemyFollowState : EnemyBaseState
 {
-    public EnemyFollowState(EnemyView view, EnemyAnimation enemyAnimation, EnemyMover mover, EnemyStateMachine stateMachine, Enemy enemy) 
+    public EnemyFollowState(IEnemyView view, IEnemyAnimation enemyAnimation, IEnemyMover mover, IStateSwitcher stateMachine, Enemy enemy) 
         : base(view, enemyAnimation, mover, stateMachine, enemy) { }
 
     public override void Enter()
@@ -10,7 +10,10 @@ public class EnemyFollowState : EnemyBaseState
 
     public override void Update()
     {
-        
+        if (Mover.IsEndPoint(Enemy.Target.Position, Enemy.DistanceAttack))
+        {
+            EnemyStateMachine.SwitchState<EnemyAttackState>();
+        }
     }
 
     public override void FixedUpdate() 
@@ -24,6 +27,4 @@ public class EnemyFollowState : EnemyBaseState
             Mover.Move(Enemy.Target.Position, Enemy.Speed);
         }
     }
-
-    public override void Exit() { }
 }

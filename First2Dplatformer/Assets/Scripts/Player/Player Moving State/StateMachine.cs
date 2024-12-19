@@ -6,14 +6,15 @@ public class PlayerMovingStateMachine : IStateSwitcher, IStateUpdate
     public IState CurrentState { get; private set; }
     protected List<IState> States;
 
-    public PlayerMovingStateMachine(PlayerAnimation playerAnimation, PlayerMover mover, PlayerPhysics playerPhysics, InputReader inputSystem)
+    public PlayerMovingStateMachine(PlayerAnimation playerAnimation, IMover mover, PlayerPhysics playerPhysics, IInputSystem inputSystem)
     {
         States = new()
         {
             new PlayerIdleState(playerAnimation, mover, playerPhysics, this, inputSystem),
             new PlayerRunState(playerAnimation, mover, playerPhysics,this, inputSystem),
             new PlayerJumpState(playerAnimation, mover, playerPhysics, this, inputSystem),
-            new PlayerFallState(playerAnimation, mover, playerPhysics, this, inputSystem)
+            new PlayerFallState(playerAnimation, mover, playerPhysics, this, inputSystem),
+            new PlayerMeleeAttackState(playerAnimation, mover, playerPhysics, this, inputSystem)
         };
     }
 

@@ -5,7 +5,7 @@ public class EnemyMovingState : EnemyBaseState
     private int _spot = 1;
     private Vector2 _direction;
 
-    public EnemyMovingState(EnemyView view, EnemyAnimation enemyAnimation, EnemyMover mover, EnemyStateMachine stateMachine, Enemy enemy) 
+    public EnemyMovingState(IEnemyView view, IEnemyAnimation enemyAnimation, IEnemyMover mover, IStateSwitcher stateMachine, Enemy enemy) 
         : base(view, enemyAnimation, mover, stateMachine, enemy) { }
 
     public override void Enter()
@@ -25,8 +25,7 @@ public class EnemyMovingState : EnemyBaseState
         {
             EnemyStateMachine.SwitchState<EnemyFollowState>();
         }
-
-        if (Mover.IsEndPoint(Enemy.PointsSpots[_spot].position, Enemy.MinDistanceForTarget) || Enemy.OnGround == false)
+        else if (Mover.IsEndPoint(Enemy.PointsSpots[_spot].position, Enemy.MinDistanceForTarget) || Enemy.OnGround == false)
         {
             EnemyStateMachine.SwitchState<EnemyIdleState>();
         }
@@ -36,6 +35,4 @@ public class EnemyMovingState : EnemyBaseState
     {
         Mover.Move(Enemy.PointsSpots[_spot].position, Enemy.Speed);
     }
-
-    public override void Exit() { }
 }

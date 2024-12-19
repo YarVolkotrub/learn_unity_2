@@ -4,7 +4,7 @@ public class PlayerRunState : PlayerMovingBaseState
 {
     private Vector2 _moveDirection;
 
-    public PlayerRunState(PlayerAnimation playerAnimation, PlayerMover mover, PlayerPhysics playerPhysics, PlayerMovingStateMachine stateMachine, InputReader inputSystem) 
+    public PlayerRunState(PlayerAnimation playerAnimation, IMover mover, PlayerPhysics playerPhysics, IStateSwitcher stateMachine, IInputSystem inputSystem) 
         : base(playerAnimation, mover, playerPhysics, stateMachine, inputSystem) { }
 
     public override void Enter()
@@ -20,15 +20,17 @@ public class PlayerRunState : PlayerMovingBaseState
         {
             StateMachine.SwitchState<PlayerIdleState>();
         }
-
-        if (InputSystem.JumpDirection != Vector2.zero && PlayerPhysics.OnGround)
+        else if (InputSystem.JumpDirection != Vector2.zero && PlayerPhysics.OnGround)
         {
             StateMachine.SwitchState<PlayerJumpState>();
         }
-
-        if (PlayerPhysics.OnGround == false && PlayerPhysics.IsFalling)
+        else if (PlayerPhysics.OnGround == false && PlayerPhysics.IsFalling)
         {
             StateMachine.SwitchState<PlayerFallState>();
+        }
+        else if (InputSystem.IsMeleeAttack && PlayerPhysics.OnGround)
+        {
+            StateMachine.SwitchState<PlayerMeleeAttackState>();
         }
     }
 

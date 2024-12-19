@@ -3,7 +3,7 @@ using UnityEngine;
 public class Combat: MonoBehaviour
 {
 
-    [SerializeField] private GameObject _meleeAttack;
+    [SerializeField] private GameObject _weapon;
     [SerializeField] private CheckerAnimationAttack _checkerAnimationAttack;
 
     public void OnEnable()
@@ -20,11 +20,11 @@ public class Combat: MonoBehaviour
     {
         if (isAttack)
         {
-            _meleeAttack.SetActive(true);
+            _weapon.SetActive(true);
         }
         else
         {
-            _meleeAttack.SetActive(false);
+            _weapon.SetActive(false);
         }
     }
 }

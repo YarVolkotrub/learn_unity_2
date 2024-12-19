@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class PlayerAnimation : MonoBehaviour
+public class PlayerAnimation : MonoBehaviour, IPlayerAnimation
 {
     [SerializeField] private Animator _animator;
 
@@ -33,7 +33,7 @@ public class PlayerAnimation : MonoBehaviour
         _animator.SetTrigger(_idle);
     }
 
-    public void MeleeAttack()
+    public void Attack()
     {
         _animator.SetTrigger(_meleeAttack);
     }

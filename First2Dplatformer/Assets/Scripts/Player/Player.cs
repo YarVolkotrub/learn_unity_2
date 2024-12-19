@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerPhysics))]
 public class Player : MonoBehaviour, ITarget
 {
-    [SerializeField, Range(1, 100)] private int _healthPoint;
+    [SerializeField] private int _maxHealthPoint = 100;
     [SerializeField] private PlayerAnimation _playerAnimation;
     [SerializeField] private PlayerPhysics _playerPhysics;
 
@@ -18,7 +18,7 @@ public class Player : MonoBehaviour, ITarget
 
     public void Init()
     {
-        _health = new PlayerHealth(_healthPoint);
+        _health = new PlayerHealth(_maxHealthPoint);
         _playerInventory = new PlayerInventory();
         _mover = new PlayerMover(_playerPhysics.RigidbodyPlayer, transform);
         _inputSystem = new InputReader();

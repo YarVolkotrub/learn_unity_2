@@ -4,16 +4,17 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyAnimation))]
 public class Enemy : MonoBehaviour, IEnemyCombat, ICheckOnGround, IEnemyHealth
 {
-    [SerializeField] protected Transform[] _pointsSpots;
+    [SerializeField] protected Transform[] PointsSpots;
     [SerializeField] protected Transform GroundCheck;
     [SerializeField] protected Rigidbody2D Rigidbody;
-    [SerializeField, Range(1, 100)] protected int MaxHealth;
-    [SerializeField, Range(1, 10)] protected float SpeedMove;
-    [SerializeField, Range(1, 10)] protected float WaitSecond;
+    [SerializeField] protected int MaxHealthPoint = 100;
+    [SerializeField] private float SpeedMove = 1;
+    [SerializeField] private float WaitSecond = 1;
     [SerializeField] private Player _target;
     [SerializeField] private EnemyAnimation _enemyAnimation;
-    [SerializeField, Range(0, 2)] private float _delayAttack = 1f;
-    [SerializeField, Range(0, 2)] private float _distanceAttack = 1f;
+    [SerializeField] private float _delayAttack = 1f;
+    [SerializeField] private float _distanceAttack = 1f;
+
 
     protected IEnemyAnimation EnemyAnimation => _enemyAnimation;
     protected IEnemyMover Mover;
@@ -31,7 +32,7 @@ public class Enemy : MonoBehaviour, IEnemyCombat, ICheckOnGround, IEnemyHealth
     public float MinDistanceForTarget => _minDistanceForTarget;
     public float Speed => SpeedMove;
     public float Wait => WaitSecond;
-    public Transform[] PointsSpots => _pointsSpots;
+    public Transform[] Spots => PointsSpots;
     public Rigidbody2D RigidbodyEnemy => Rigidbody;
     public bool OnGround => Physics2D.OverlapCircle(GroundCheck.position, _groundRadius, LayerMask.GetMask(_layerGround));
 

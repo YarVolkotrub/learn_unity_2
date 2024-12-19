@@ -4,11 +4,8 @@ public class Cutthroat : Enemy
     {
         Mover = new EnemyMover(Rigidbody, transform);
         View = new EnemyView();
-        Health = new EnemyHealth();
+        Health = new EnemyHealth(MaxHealthPoint);
         EnemyStateMachine = new EnemyStateMachine(View, EnemyAnimation, Mover, this);
-
-        SpeedMove = 2f;
-        WaitSecond = 5f;
     }
 
     private void Start()

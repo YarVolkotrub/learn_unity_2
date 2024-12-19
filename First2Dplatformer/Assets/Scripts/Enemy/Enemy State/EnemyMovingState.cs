@@ -12,7 +12,7 @@ public class EnemyMovingState : EnemyBaseState
     {
         EnemyAnimation.Move();
         _spot = (_spot == 1) ? 0 : 1;
-        _direction = Mover.SetDirection(Enemy.PointsSpots[_spot].position.x);
+        _direction = Mover.SetDirection(Enemy.Spots[_spot].position.x);
         View.SetDirection(_direction);
         Mover.Flip(_direction);
     }
@@ -25,7 +25,7 @@ public class EnemyMovingState : EnemyBaseState
         {
             EnemyStateMachine.SwitchState<EnemyFollowState>();
         }
-        else if (Mover.IsEndPoint(Enemy.PointsSpots[_spot].position, Enemy.MinDistanceForTarget) || Enemy.OnGround == false)
+        else if (Mover.IsEndPoint(Enemy.Spots[_spot].position, Enemy.MinDistanceForTarget) || Enemy.OnGround == false)
         {
             EnemyStateMachine.SwitchState<EnemyIdleState>();
         }
@@ -33,6 +33,6 @@ public class EnemyMovingState : EnemyBaseState
 
     public override void FixedUpdate() 
     {
-        Mover.Move(Enemy.PointsSpots[_spot].position, Enemy.Speed);
+        Mover.Move(Enemy.Spots[_spot].position, Enemy.Speed);
     }
 }

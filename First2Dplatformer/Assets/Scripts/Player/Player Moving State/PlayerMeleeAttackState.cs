@@ -12,7 +12,7 @@ public class PlayerMeleeAttackState : PlayerMovingBaseState
     {
         _timer = 0;
         Mover.Stand();
-        PlayerAnimation.MeleeAttack();
+        PlayerAnimation.Attack();
     }
 
     public override void Update() 

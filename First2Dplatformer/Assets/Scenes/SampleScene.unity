@@ -549,6 +549,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1083496141}
     - target: {fileID: 6473475734787640674, guid: 49dc762a0f2dd6d4e93e054e508cd9ec, type: 3}
+      propertyPath: SpeedMove
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6473475734787640674, guid: 49dc762a0f2dd6d4e93e054e508cd9ec, type: 3}
+      propertyPath: WaitSecond
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6473475734787640674, guid: 49dc762a0f2dd6d4e93e054e508cd9ec, type: 3}
       propertyPath: _delayAttack
       value: 1.2
       objectReference: {fileID: 0}
@@ -564,6 +572,18 @@ PrefabInstance:
       propertyPath: _enemyAnimation
       value: 
       objectReference: {fileID: 1083496147}
+    - target: {fileID: 6473475734787640674, guid: 49dc762a0f2dd6d4e93e054e508cd9ec, type: 3}
+      propertyPath: PointsSpots.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6473475734787640674, guid: 49dc762a0f2dd6d4e93e054e508cd9ec, type: 3}
+      propertyPath: PointsSpots.Array.data[0]
+      value: 
+      objectReference: {fileID: 478210623}
+    - target: {fileID: 6473475734787640674, guid: 49dc762a0f2dd6d4e93e054e508cd9ec, type: 3}
+      propertyPath: PointsSpots.Array.data[1]
+      value: 
+      objectReference: {fileID: 847150817}
     - target: {fileID: 6473475734787640674, guid: 49dc762a0f2dd6d4e93e054e508cd9ec, type: 3}
       propertyPath: _pointsSpots.Array.data[0]
       value: 
@@ -2557,7 +2577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a0b52d496f9e54cbd0f04367f4df74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meleeAttack: {fileID: 1568515312}
+  _weapon: {fileID: 1568515312}
   _checkerAnimationAttack: {fileID: 1311034720}
 --- !u!114 &1399678046 stripped
 MonoBehaviour:
@@ -5102,7 +5122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a0b52d496f9e54cbd0f04367f4df74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meleeAttack: {fileID: 98209218}
+  _weapon: {fileID: 98209218}
   _checkerAnimationAttack: {fileID: 1688972121}
 --- !u!1001 &1903795271
 PrefabInstance:
@@ -5317,7 +5337,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7844262591749324606, guid: 7a76b628b082311498fc8130ecced2d5, type: 3}
       propertyPath: _healthPoint
-      value: 58
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7844262591749324606, guid: 7a76b628b082311498fc8130ecced2d5, type: 3}
       propertyPath: _playerPhysics
@@ -5381,7 +5401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37a0b52d496f9e54cbd0f04367f4df74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meleeAttack: {fileID: 1187146763}
+  _weapon: {fileID: 1187146763}
   _checkerAnimationAttack: {fileID: 2025544476}
 --- !u!4 &2027558142 stripped
 Transform:
@@ -5855,6 +5875,18 @@ PrefabInstance:
       propertyPath: _enemyAnimation
       value: 
       objectReference: {fileID: 2025544466}
+    - target: {fileID: 6968810112786407122, guid: da156c963632d52488b9d17e1ae846ce, type: 3}
+      propertyPath: PointsSpots.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6968810112786407122, guid: da156c963632d52488b9d17e1ae846ce, type: 3}
+      propertyPath: PointsSpots.Array.data[0]
+      value: 
+      objectReference: {fileID: 299277530}
+    - target: {fileID: 6968810112786407122, guid: da156c963632d52488b9d17e1ae846ce, type: 3}
+      propertyPath: PointsSpots.Array.data[1]
+      value: 
+      objectReference: {fileID: 298054831}
     - target: {fileID: 6968810112786407122, guid: da156c963632d52488b9d17e1ae846ce, type: 3}
       propertyPath: _pointsSpots.Array.data[0]
       value: 

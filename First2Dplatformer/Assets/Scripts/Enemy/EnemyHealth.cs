@@ -1,13 +1,12 @@
-using UnityEngine;
-
 public class EnemyHealth : IEnemyHealth
 {
-    [SerializeField] private int _health = 100;
+    private int _health;
     private int _maxHealth;
 
-    public void Start()
+    public EnemyHealth(int health)
     {
-        _maxHealth = _health;
+        _health = health;
+        _maxHealth = health;
     }
 
     public void TakeDamage(int damage)

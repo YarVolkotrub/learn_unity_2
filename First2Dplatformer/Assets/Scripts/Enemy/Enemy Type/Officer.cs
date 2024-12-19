@@ -4,11 +4,8 @@ public class Officer : Enemy
     {
         Mover = new EnemyMover(Rigidbody, transform);
         View = new EnemyView();
-        Health = new EnemyHealth();
+        Health = new EnemyHealth(MaxHealthPoint);
         EnemyStateMachine = new EnemyStateMachine(View, EnemyAnimation, Mover, this);
-
-        SpeedMove = 1f;
-        WaitSecond = 2f;
     }
 
     private void Start()

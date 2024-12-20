@@ -2,7 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(PlayerAnimation))]
 [RequireComponent(typeof(PlayerPhysics))]
-public class Player : MonoBehaviour, ITarget
+public class Player : MonoBehaviour, ITarget, IHealth
 {
     [SerializeField] private int _maxHealthPoint = 100;
     [SerializeField] private PlayerAnimation _playerAnimation;
@@ -11,14 +11,18 @@ public class Player : MonoBehaviour, ITarget
     private IPlayerInventory _playerInventory;
     private IMover _mover;
     private IInputSystem _inputSystem;
-    private IPlayerHealth _health;
+    private IHealth _health;
+    private IHeal _heal;
     private PlayerMovingStateMachine _stateMachine;
 
     public Vector2 Position => transform.position;
 
     public void Init()
     {
-        _health = new PlayerHealth(_maxHealthPoint);
+        PlayerHealth health = new(_maxHealthPoint);
+        _heal = health;
+        _health = health;
+
         _playerInventory = new PlayerInventory();
         _mover = new PlayerMover(_playerPhysics.RigidbodyPlayer, transform);
         _inputSystem = new InputReader();
@@ -47,10 +51,9 @@ public class Player : MonoBehaviour, ITarget
             _playerInventory.AddPoints(item.Cost);
             item.Destroy();
         }
-
-        if (collider.gameObject.TryGetComponent(out FirstAidKit firstAidKit))
+        else if (collider.gameObject.TryGetComponent(out FirstAidKit firstAidKit))
         {
-            _health.Heal(firstAidKit.HealPoint);
+            _heal.Heal(firstAidKit.HealPoint);
             firstAidKit.Destroy();
         }
     }

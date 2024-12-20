@@ -1,4 +1,4 @@
-public class PlayerHealth : IPlayerHealth
+public class PlayerHealth : IHeal, IHealth
 {
     private int _maxHealth;
 

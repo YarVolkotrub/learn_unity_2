@@ -4,15 +4,14 @@ using UnityEngine;
 public class PlayerPhysics : MonoBehaviour, ICheckOnGround, IPlayerPhysics
 {
     [SerializeField] private Transform _groundCheck;
-    private float _groundRadius = 0.05f;
-    private string _layerGround = "Ground";
-
     [SerializeField, Range(1, 5)] private float _runSpeed = 4f;
     [SerializeField, Range(3, 8)] private float _jumpForce = 7f;
     [SerializeField, Range(1, 5)] private float _jumpMoveSpeed = 3f;
     [SerializeField, Range(1, 5)] private float _fallMoveSpeed = 2f;
     [SerializeField, Range(0, 2)] private float _delayDoubleJump = 0.5f;
     [SerializeField] private Rigidbody2D _rigidbody;
+    private float _groundRadius = 0.05f;
+    private string _layerGround = "Ground";
     private bool _isDoubleJump = true;
 
     public float DelayDoubleJump => _delayDoubleJump;

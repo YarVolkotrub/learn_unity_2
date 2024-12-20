@@ -2,7 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(EnemyAnimation))]
-public class Enemy : MonoBehaviour, IEnemyCombat, ICheckOnGround, IEnemyHealth
+public class Enemy : MonoBehaviour, IEnemyCombat, ICheckOnGround, IHealth
 {
     [SerializeField] protected Transform[] PointsSpots;
     [SerializeField] protected Transform GroundCheck;
@@ -15,11 +15,10 @@ public class Enemy : MonoBehaviour, IEnemyCombat, ICheckOnGround, IEnemyHealth
     [SerializeField] private float _delayAttack = 1f;
     [SerializeField] private float _distanceAttack = 1f;
 
-
     protected IEnemyAnimation EnemyAnimation => _enemyAnimation;
     protected IEnemyMover Mover;
     protected IEnemyView View;
-    protected IEnemyHealth Health;
+    protected IHealth Health;
     protected EnemyStateMachine EnemyStateMachine;
 
     private float _minDistanceForTarget = 0.2f;

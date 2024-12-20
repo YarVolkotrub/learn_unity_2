@@ -1,4 +1,4 @@
-public class EnemyHealth : IEnemyHealth
+public class EnemyHealth : IHealth
 {
     private int _health;
     private int _maxHealth;

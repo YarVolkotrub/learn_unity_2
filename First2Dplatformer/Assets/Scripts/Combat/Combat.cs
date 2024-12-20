@@ -3,7 +3,7 @@ using UnityEngine;
 public class Combat: MonoBehaviour
 {
 
-    [SerializeField] private GameObject _weapon;
+    [SerializeField] private Weapon _weapon;
     [SerializeField] private CheckerAnimationAttack _checkerAnimationAttack;
 
     public void OnEnable()

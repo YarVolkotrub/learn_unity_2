@@ -19,8 +19,6 @@ public class EnemyMovingState : EnemyBaseState
 
     public override void Update()
     {
-        Debug.DrawRay(Enemy.transform.position, _direction * View.Distance, Color.red);
-
         if (Enemy.OnGround && View.IsSeachPlayer(Enemy.transform.position, View.Direction))
         {
             EnemyStateMachine.SwitchState<EnemyFollowState>();

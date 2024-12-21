@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class PlayerJumpState : PlayerMovingBaseState
+public class PlayerJumpState : PlayerBaseState
 {
     private Vector2 _moveDirection;
-    public PlayerJumpState(PlayerAnimation playerAnimation, IMover mover, PlayerPhysics playerPhysics, IStateSwitcher stateMachine, IInputSystem inputSystem) 
+    public PlayerJumpState(PlayerAnimator playerAnimation, IMover mover, PlayerPhysics playerPhysics, IStateSwitcher stateMachine, IInputSystem inputSystem) 
         : base(playerAnimation, mover, playerPhysics, stateMachine, inputSystem) { }
 
     public override void Enter()

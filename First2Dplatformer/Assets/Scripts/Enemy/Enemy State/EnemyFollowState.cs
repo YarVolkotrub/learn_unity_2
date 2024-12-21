@@ -1,6 +1,6 @@
 public class EnemyFollowState : EnemyBaseState
 {
-    public EnemyFollowState(IEnemyView view, IEnemyAnimation enemyAnimation, IEnemyMover mover, IStateSwitcher stateMachine, Enemy enemy) 
+    public EnemyFollowState(IEnemyView view, IEnemyAnimator enemyAnimation, IEnemyMover mover, IStateSwitcher stateMachine, Enemy enemy) 
         : base(view, enemyAnimation, mover, stateMachine, enemy) { }
 
     public override void Enter()

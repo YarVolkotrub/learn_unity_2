@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public class Cutthroat : Enemy
 {
     public void Init()
@@ -5,6 +7,7 @@ public class Cutthroat : Enemy
         Mover = new EnemyMover(Rigidbody, transform);
         View = new EnemyView();
         Health = new EnemyHealth(MaxHealthPoint);
+        Animator.Init();
         StateMachine = new EnemyStateMachine(View, Animation, Mover, this);
     }
 

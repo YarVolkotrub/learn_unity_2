@@ -5,6 +5,7 @@ public class Officer : Enemy
         Mover = new EnemyMover(Rigidbody, transform);
         View = new EnemyView();
         Health = new EnemyHealth(MaxHealthPoint);
+        Animator.Init();
         StateMachine = new EnemyStateMachine(View, Animation, Mover, this);
     }
 

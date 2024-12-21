@@ -2,7 +2,7 @@ using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(EnemyAnimation))]
+[RequireComponent(typeof(EnemyAnimator))]
 public class Enemy : MonoBehaviour, IEnemyCombat, ICheckOnGround, IHealth
 {
     [SerializeField] protected Transform[] PointsSpots;
@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour, IEnemyCombat, ICheckOnGround, IHealth
     [SerializeField] private float SpeedMove = 1;
     [SerializeField] private float WaitSecond = 1;
     [SerializeField] private Player _target;
-    [SerializeField] private EnemyAnimation _Animation;
+    [SerializeField] protected EnemyAnimator Animator;
     [SerializeField] private float _delayAttack = 1f;
     [SerializeField] private float _distanceAttack = 1f;
 
@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour, IEnemyCombat, ICheckOnGround, IHealth
     private string _layerGround = "Ground";
     private float _groundRadius = 0.05f;
 
-    protected IEnemyAnimation Animation => _Animation;
+    protected IEnemyAnimator Animation => Animator;
     public float DelayAttack => _delayAttack;
     public float DistanceAttack => _distanceAttack;
     public ITarget Target => _target;

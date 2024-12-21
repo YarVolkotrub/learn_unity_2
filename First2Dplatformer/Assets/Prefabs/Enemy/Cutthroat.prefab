@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 5995268046777373537}
   - component: {fileID: 8521115038327638240}
   - component: {fileID: 6473475734787640674}
+  - component: {fileID: 6888810239069721339}
+  - component: {fileID: 1710260854381355563}
   m_Layer: 8
   m_Name: Cutthroat
   m_TagString: Untagged
@@ -36,6 +38,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5559397931006898211}
+  - {fileID: 7137259618295415832}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &8125901719326234931
@@ -198,14 +201,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b508d3ed83396e4192400ecd801f5f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pointsSpots:
+  PointsSpots:
   - {fileID: 0}
   - {fileID: 0}
   GroundCheck: {fileID: 5559397931006898211}
-  MaxHealth: 0
-  SpeedMove: 0
-  WaitSecond: 0
-  _playert: {fileID: 0}
+  Rigidbody: {fileID: 8125901719326234931}
+  MaxHealthPoint: 100
+  SpeedMove: 2
+  WaitSecond: 2
+  _target: {fileID: 0}
+  _Animation: {fileID: 8521115038327638240}
+  _delayAttack: 1.2
+  _distanceAttack: 0.8
+--- !u!114 &6888810239069721339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3567222713414677887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3227062c4cbacef49b88e0d08b08f028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1710260854381355563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3567222713414677887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a0b52d496f9e54cbd0f04367f4df74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _weapon: {fileID: 1222914294008217801}
+  _checkerAnimationAttack: {fileID: 6888810239069721339}
 --- !u!1 &8260538908110211042
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,9 +264,90 @@ Transform:
   m_GameObject: {fileID: 8260538908110211042}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.489, y: -0.536, z: 0.15528916}
+  m_LocalPosition: {x: 0.399, y: -0.661, z: 0.08736777}
   m_LocalScale: {x: 0.73286915, y: 0.6729023, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5692263030220663356}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &5894976757610107194
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5692263030220663356}
+    m_Modifications:
+    - target: {fileID: 528725803775499091, guid: 4529852b9e533e24a9c5fff57a1656e0, type: 3}
+      propertyPath: m_Name
+      value: CutthroatMeleeAttackPoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 528725803775499091, guid: 4529852b9e533e24a9c5fff57a1656e0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2494196244190456007, guid: 4529852b9e533e24a9c5fff57a1656e0, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657918978031211810, guid: 4529852b9e533e24a9c5fff57a1656e0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.416
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657918978031211810, guid: 4529852b9e533e24a9c5fff57a1656e0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.066
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657918978031211810, guid: 4529852b9e533e24a9c5fff57a1656e0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657918978031211810, guid: 4529852b9e533e24a9c5fff57a1656e0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657918978031211810, guid: 4529852b9e533e24a9c5fff57a1656e0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657918978031211810, guid: 4529852b9e533e24a9c5fff57a1656e0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657918978031211810, guid: 4529852b9e533e24a9c5fff57a1656e0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657918978031211810, guid: 4529852b9e533e24a9c5fff57a1656e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657918978031211810, guid: 4529852b9e533e24a9c5fff57a1656e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657918978031211810, guid: 4529852b9e533e24a9c5fff57a1656e0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4529852b9e533e24a9c5fff57a1656e0, type: 3}
+--- !u!114 &1222914294008217801 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4699365692608303603, guid: 4529852b9e533e24a9c5fff57a1656e0, type: 3}
+  m_PrefabInstance: {fileID: 5894976757610107194}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f085b09a768eb2344930cb78289948e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &7137259618295415832 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3657918978031211810, guid: 4529852b9e533e24a9c5fff57a1656e0, type: 3}
+  m_PrefabInstance: {fileID: 5894976757610107194}
+  m_PrefabAsset: {fileID: 0}

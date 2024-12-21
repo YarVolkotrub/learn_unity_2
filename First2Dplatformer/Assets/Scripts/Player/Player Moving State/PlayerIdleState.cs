@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class PlayerIdleState : PlayerMovingBaseState
+public class PlayerIdleState : PlayerBaseState
 {
     float _moveDirection;
-    public PlayerIdleState(PlayerAnimation playerAnimation, IMover mover, PlayerPhysics playerPhysics, IStateSwitcher stateMachine, IInputSystem inputSystem) 
+    public PlayerIdleState(PlayerAnimator playerAnimation, IMover mover, PlayerPhysics playerPhysics, IStateSwitcher stateMachine, IInputSystem inputSystem) 
         : base(playerAnimation, mover, playerPhysics, stateMachine, inputSystem) { }
 
     public override void Enter()

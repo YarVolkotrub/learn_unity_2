@@ -1,18 +1,18 @@
 using UnityEngine;
 
-public class PlayerMeleeAttackState : PlayerMovingBaseState
+public class PlayerMeleeAttackState : PlayerBaseState
 {
     private float _lenghtAnimation;
     private float _timer;
 
-    public PlayerMeleeAttackState(PlayerAnimation playerAnimation, IMover mover, PlayerPhysics playerPhysics, IStateSwitcher stateMachine, IInputSystem inputSystem) 
+    public PlayerMeleeAttackState(PlayerAnimator playerAnimation, IMover mover, PlayerPhysics playerPhysics, IStateSwitcher stateMachine, IInputSystem inputSystem) 
         : base(playerAnimation, mover, playerPhysics, stateMachine, inputSystem) { }
 
     public override void Enter()
     {
         _timer = 0;
         Mover.Stand();
-        PlayerAnimation.Attack();
+        PlayerAnimation.MeleeAttack();
     }
 
     public override void Update() 

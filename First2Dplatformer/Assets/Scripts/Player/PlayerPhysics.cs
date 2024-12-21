@@ -10,6 +10,7 @@ public class PlayerPhysics : MonoBehaviour, ICheckOnGround, IPlayerPhysics
     [SerializeField, Range(1, 5)] private float _fallMoveSpeed = 2f;
     [SerializeField, Range(0, 2)] private float _delayDoubleJump = 0.5f;
     [SerializeField] private Rigidbody2D _rigidbody;
+
     private float _groundRadius = 0.05f;
     private string _layerGround = "Ground";
     private bool _isDoubleJump = true;

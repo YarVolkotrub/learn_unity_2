@@ -4,7 +4,7 @@ public class EnemyIdleState : EnemyBaseState
 {
     private float _timer;
 
-    public EnemyIdleState(IEnemyView view, IEnemyAnimation enemyAnimation, IEnemyMover mover, IStateSwitcher stateMachine, Enemy enemy) 
+    public EnemyIdleState(IEnemyView view, IEnemyAnimator enemyAnimation, IEnemyMover mover, IStateSwitcher stateMachine, Enemy enemy) 
         : base(view, enemyAnimation, mover, stateMachine, enemy) { }
 
     public override void Enter()

@@ -1,4 +1,4 @@
-public interface IPlayerAnimation
+public interface IEnemyAnimator
 {
     public float Lenght { get; }
     public void Move();

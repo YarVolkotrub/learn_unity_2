@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class PlayerRunState : PlayerMovingBaseState
+public class PlayerRunState : PlayerBaseState
 {
     private Vector2 _moveDirection;
 
-    public PlayerRunState(PlayerAnimation playerAnimation, IMover mover, PlayerPhysics playerPhysics, IStateSwitcher stateMachine, IInputSystem inputSystem) 
+    public PlayerRunState(PlayerAnimator playerAnimation, IMover mover, PlayerPhysics playerPhysics, IStateSwitcher stateMachine, IInputSystem inputSystem) 
         : base(playerAnimation, mover, playerPhysics, stateMachine, inputSystem) { }
 
     public override void Enter()

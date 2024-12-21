@@ -1,11 +1,11 @@
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerAnimation))]
+[RequireComponent(typeof(PlayerAnimator))]
 [RequireComponent(typeof(PlayerPhysics))]
 public class Player : MonoBehaviour, ITarget, IHealth
 {
     [SerializeField] private int _maxHealthPoint = 100;
-    [SerializeField] private PlayerAnimation _Animation;
+    [SerializeField] private PlayerAnimator _Animation;
     [SerializeField] private PlayerPhysics _Physics;
 
     private IPlayerInventory _Inventory;
@@ -13,7 +13,7 @@ public class Player : MonoBehaviour, ITarget, IHealth
     private IInputSystem _inputSystem;
     private IHealth _health;
     private IHeal _heal;
-    private PlayerMovingStateMachine _stateMachine;
+    private PlayerStateMachine _stateMachine;
 
     public Vector2 Position => transform.position;
 
@@ -22,11 +22,11 @@ public class Player : MonoBehaviour, ITarget, IHealth
         PlayerHealth health = new(_maxHealthPoint);
         _heal = health;
         _health = health;
-
+        _Animation.Init();
         _Inventory = new PlayerInventory();
         _mover = new PlayerMover(_Physics.RigidbodyPlayer, transform);
         _inputSystem = new InputReader();
-        _stateMachine = new PlayerMovingStateMachine(_Animation, _mover, _Physics, _inputSystem);
+        _stateMachine = new PlayerStateMachine(_Animation, _mover, _Physics, _inputSystem);
     }
 
     private void Start()

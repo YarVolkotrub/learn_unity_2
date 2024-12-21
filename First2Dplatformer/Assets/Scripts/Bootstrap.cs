@@ -6,7 +6,7 @@ public class Bootstrap : MonoBehaviour
     [SerializeField] private Officer _officer;
     [SerializeField] private Cutthroat _cutthroat;
     [SerializeField] private ItemSpawner _itemSpawner;
-    [SerializeField] private GenerationFirstAidKit _generationPositionItem;
+    [SerializeField] private FirstAidKitGeneration _generationPositionItem;
 
     private void Awake()
     {

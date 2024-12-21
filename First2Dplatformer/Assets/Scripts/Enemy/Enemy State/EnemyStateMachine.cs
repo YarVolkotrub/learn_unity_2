@@ -6,7 +6,7 @@ public class EnemyStateMachine : IStateSwitcher, IStateUpdate
     public IState CurrentState { get; private set; }
     protected List<IState> States;
 
-    public EnemyStateMachine(IEnemyView view, IEnemyAnimation enemyAnimation, IEnemyMover mover, Enemy enemy)
+    public EnemyStateMachine(IEnemyView view, IEnemyAnimator enemyAnimation, IEnemyMover mover, Enemy enemy)
     {
         States = new()
         {

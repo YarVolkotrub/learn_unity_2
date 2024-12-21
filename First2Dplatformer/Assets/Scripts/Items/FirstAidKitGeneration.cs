@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GenerationFirstAidKit : MonoBehaviour
+public class FirstAidKitGeneration : MonoBehaviour
 {
     [SerializeField] private List<Transform> _pointsSpots;
     [SerializeField] private FirstAidKit _item;

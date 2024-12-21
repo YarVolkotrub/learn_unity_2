@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
 
-public class PlayerMovingStateMachine : IStateSwitcher, IStateUpdate
+public class PlayerStateMachine : IStateSwitcher, IStateUpdate
 {
     public IState CurrentState { get; private set; }
     protected List<IState> States;
 
-    public PlayerMovingStateMachine(PlayerAnimation playerAnimation, IMover mover, PlayerPhysics playerPhysics, IInputSystem inputSystem)
+    public PlayerStateMachine(PlayerAnimator playerAnimation, IMover mover, PlayerPhysics playerPhysics, IInputSystem inputSystem)
     {
         States = new()
         {

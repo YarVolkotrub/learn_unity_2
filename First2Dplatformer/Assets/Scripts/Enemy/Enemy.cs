@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -11,27 +12,27 @@ public class Enemy : MonoBehaviour, IEnemyCombat, ICheckOnGround, IHealth
     [SerializeField] private float SpeedMove = 1;
     [SerializeField] private float WaitSecond = 1;
     [SerializeField] private Player _target;
-    [SerializeField] private EnemyAnimation _enemyAnimation;
+    [SerializeField] private EnemyAnimation _Animation;
     [SerializeField] private float _delayAttack = 1f;
     [SerializeField] private float _distanceAttack = 1f;
 
-    protected IEnemyAnimation EnemyAnimation => _enemyAnimation;
     protected IEnemyMover Mover;
     protected IEnemyView View;
     protected IHealth Health;
-    protected EnemyStateMachine EnemyStateMachine;
+    protected EnemyStateMachine StateMachine;
 
     private float _minDistanceForTarget = 0.2f;
     private string _layerGround = "Ground";
     private float _groundRadius = 0.05f;
 
+    protected IEnemyAnimation Animation => _Animation;
     public float DelayAttack => _delayAttack;
     public float DistanceAttack => _distanceAttack;
     public ITarget Target => _target;
     public float MinDistanceForTarget => _minDistanceForTarget;
     public float Speed => SpeedMove;
     public float Wait => WaitSecond;
-    public Transform[] Spots => PointsSpots;
+    public Transform[] Spots => PointsSpots.ToArray();
     public Rigidbody2D RigidbodyEnemy => Rigidbody;
     public bool OnGround => Physics2D.OverlapCircle(GroundCheck.position, _groundRadius, LayerMask.GetMask(_layerGround));
 

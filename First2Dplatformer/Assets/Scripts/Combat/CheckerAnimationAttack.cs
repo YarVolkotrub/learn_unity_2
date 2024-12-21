@@ -3,15 +3,15 @@ using UnityEngine;
 
 public class CheckerAnimationAttack : MonoBehaviour
 {
-    public event Action<bool> IsWeaponAttack;
+    public event Action<bool> WeaponAttacking;
 
     public void OnAnimationWeapon()
     {
-        IsWeaponAttack?.Invoke(true);
+        WeaponAttacking?.Invoke(true);
     }
 
     public void ExitAnimationWeapon()
     {
-        IsWeaponAttack?.Invoke(false);
+        WeaponAttacking?.Invoke(false);
     }
 }

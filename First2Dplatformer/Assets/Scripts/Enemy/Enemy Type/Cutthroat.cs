@@ -5,21 +5,21 @@ public class Cutthroat : Enemy
         Mover = new EnemyMover(Rigidbody, transform);
         View = new EnemyView();
         Health = new EnemyHealth(MaxHealthPoint);
-        EnemyStateMachine = new EnemyStateMachine(View, EnemyAnimation, Mover, this);
+        StateMachine = new EnemyStateMachine(View, Animation, Mover, this);
     }
 
     private void Start()
     {
-        EnemyStateMachine.SwitchState<EnemyIdleState>();
+        StateMachine.SwitchState<EnemyIdleState>();
     }
     
     private void Update()
     {
-        EnemyStateMachine.Update();
+        StateMachine.Update();
     }
 
     private void FixedUpdate()
     {
-        EnemyStateMachine.FixedUpdate();
+        StateMachine.FixedUpdate();
     }
 }

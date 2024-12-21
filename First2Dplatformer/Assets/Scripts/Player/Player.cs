@@ -5,10 +5,10 @@ using UnityEngine;
 public class Player : MonoBehaviour, ITarget, IHealth
 {
     [SerializeField] private int _maxHealthPoint = 100;
-    [SerializeField] private PlayerAnimation _playerAnimation;
-    [SerializeField] private PlayerPhysics _playerPhysics;
+    [SerializeField] private PlayerAnimation _Animation;
+    [SerializeField] private PlayerPhysics _Physics;
 
-    private IPlayerInventory _playerInventory;
+    private IPlayerInventory _Inventory;
     private IMover _mover;
     private IInputSystem _inputSystem;
     private IHealth _health;
@@ -23,10 +23,10 @@ public class Player : MonoBehaviour, ITarget, IHealth
         _heal = health;
         _health = health;
 
-        _playerInventory = new PlayerInventory();
-        _mover = new PlayerMover(_playerPhysics.RigidbodyPlayer, transform);
+        _Inventory = new PlayerInventory();
+        _mover = new PlayerMover(_Physics.RigidbodyPlayer, transform);
         _inputSystem = new InputReader();
-        _stateMachine = new PlayerMovingStateMachine(_playerAnimation, _mover, _playerPhysics, _inputSystem);
+        _stateMachine = new PlayerMovingStateMachine(_Animation, _mover, _Physics, _inputSystem);
     }
 
     private void Start()
@@ -48,7 +48,7 @@ public class Player : MonoBehaviour, ITarget, IHealth
     {
         if (collider.gameObject.TryGetComponent(out Item item))
         {
-            _playerInventory.AddPoints(item.Cost);
+            _Inventory.AddPoints(item.Cost);
             item.Destroy();
         }
         else if (collider.gameObject.TryGetComponent(out FirstAidKit firstAidKit))

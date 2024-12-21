@@ -589,6 +589,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6473475734787640674, guid: 49dc762a0f2dd6d4e93e054e508cd9ec, type: 3}
+      propertyPath: _Animation
+      value: 
+      objectReference: {fileID: 1083496147}
+    - target: {fileID: 6473475734787640674, guid: 49dc762a0f2dd6d4e93e054e508cd9ec, type: 3}
       propertyPath: _delayAttack
       value: 1.2
       objectReference: {fileID: 0}
@@ -5312,6 +5316,14 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7844262591749324606, guid: 7a76b628b082311498fc8130ecced2d5, type: 3}
+      propertyPath: _Physics
+      value: 
+      objectReference: {fileID: 1399678046}
+    - target: {fileID: 7844262591749324606, guid: 7a76b628b082311498fc8130ecced2d5, type: 3}
+      propertyPath: _Animation
+      value: 
+      objectReference: {fileID: 1399678047}
+    - target: {fileID: 7844262591749324606, guid: 7a76b628b082311498fc8130ecced2d5, type: 3}
       propertyPath: _healthPoint
       value: 100
       objectReference: {fileID: 0}
@@ -5866,6 +5878,10 @@ PrefabInstance:
       propertyPath: Rigidbody
       value: 
       objectReference: {fileID: 1032843772}
+    - target: {fileID: 6968810112786407122, guid: da156c963632d52488b9d17e1ae846ce, type: 3}
+      propertyPath: _Animation
+      value: 
+      objectReference: {fileID: 2025544466}
     - target: {fileID: 6968810112786407122, guid: da156c963632d52488b9d17e1ae846ce, type: 3}
       propertyPath: _delayAttack
       value: 1.2

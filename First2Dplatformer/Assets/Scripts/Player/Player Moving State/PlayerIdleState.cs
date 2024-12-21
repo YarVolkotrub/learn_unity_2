@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerIdleState : PlayerBaseState
 {
     float _moveDirection;
-    public PlayerIdleState(PlayerAnimator playerAnimation, IMover mover, PlayerPhysics playerPhysics, IStateSwitcher stateMachine, IInputSystem inputSystem) 
+    public PlayerIdleState(IPlayerAnimator playerAnimation, IMover mover, PlayerPhysics playerPhysics, IStateSwitcher stateMachine, IInputSystem inputSystem) 
         : base(playerAnimation, mover, playerPhysics, stateMachine, inputSystem) { }
 
     public override void Enter()

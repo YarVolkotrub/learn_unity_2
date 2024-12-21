@@ -6,7 +6,7 @@ public class PlayerStateMachine : IStateSwitcher, IStateUpdate
     public IState CurrentState { get; private set; }
     protected List<IState> States;
 
-    public PlayerStateMachine(PlayerAnimator playerAnimation, IMover mover, PlayerPhysics playerPhysics, IInputSystem inputSystem)
+    public PlayerStateMachine(IPlayerAnimator playerAnimation, IMover mover, PlayerPhysics playerPhysics, IInputSystem inputSystem)
     {
         States = new()
         {

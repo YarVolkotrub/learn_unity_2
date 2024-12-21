@@ -8,9 +8,7 @@ public class Player : MonoBehaviour, ITarget, IHealth
     [SerializeField] private PlayerAnimator _Animation;
     [SerializeField] private PlayerPhysics _Physics;
 
-    private IPlayerInventory _Inventory;
-    private IMover _mover;
-    private IInputSystem _inputSystem;
+    private IPlayerInventory _inventory;
     private IHealth _health;
     private IHeal _heal;
     private PlayerStateMachine _stateMachine;
@@ -20,13 +18,14 @@ public class Player : MonoBehaviour, ITarget, IHealth
     public void Init()
     {
         PlayerHealth health = new(_maxHealthPoint);
+        IPlayerAnimator _animator = _Animation;
         _heal = health;
         _health = health;
         _Animation.Init();
-        _Inventory = new PlayerInventory();
-        _mover = new PlayerMover(_Physics.RigidbodyPlayer, transform);
-        _inputSystem = new InputReader();
-        _stateMachine = new PlayerStateMachine(_Animation, _mover, _Physics, _inputSystem);
+        _inventory = new PlayerInventory();
+        IMover _mover = new PlayerMover(_Physics.RigidbodyPlayer, transform);
+        IInputSystem _inputSystem = new InputReader();
+        _stateMachine = new PlayerStateMachine(_animator, _mover, _Physics, _inputSystem);
     }
 
     private void Start()
@@ -48,7 +47,7 @@ public class Player : MonoBehaviour, ITarget, IHealth
     {
         if (collider.gameObject.TryGetComponent(out Item item))
         {
-            _Inventory.AddPoints(item.Cost);
+            _inventory.AddPoints(item.Cost);
             item.Destroy();
         }
         else if (collider.gameObject.TryGetComponent(out FirstAidKit firstAidKit))

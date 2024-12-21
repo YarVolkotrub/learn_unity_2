@@ -5,7 +5,7 @@ public class PlayerMeleeAttackState : PlayerBaseState
     private float _lenghtAnimation;
     private float _timer;
 
-    public PlayerMeleeAttackState(PlayerAnimator playerAnimation, IMover mover, PlayerPhysics playerPhysics, IStateSwitcher stateMachine, IInputSystem inputSystem) 
+    public PlayerMeleeAttackState(IPlayerAnimator playerAnimation, IMover mover, PlayerPhysics playerPhysics, IStateSwitcher stateMachine, IInputSystem inputSystem) 
         : base(playerAnimation, mover, playerPhysics, stateMachine, inputSystem) { }
 
     public override void Enter()

@@ -1,4 +1,4 @@
-public class ItemFromScene : Item
+public class GemStaticAtScene : Item
 {
     public override void Destroy()
     {

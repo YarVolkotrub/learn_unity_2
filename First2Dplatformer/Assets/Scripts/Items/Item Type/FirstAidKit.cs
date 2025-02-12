@@ -1,12 +1,6 @@
-using UnityEngine;
-
-public class FirstAidKit : MonoBehaviour
+public class FirstAidKit : Item
 {
-    [SerializeField] private int _healPoint = 30;
-
-    public int HealPoint => _healPoint;
-
-    public void Destroy()
+    public override void Destroy()
     {
         Destroy(gameObject);
     }

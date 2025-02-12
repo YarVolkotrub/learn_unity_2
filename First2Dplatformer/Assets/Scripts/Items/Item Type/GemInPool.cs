@@ -2,11 +2,11 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class ItemFromPool : Item
+public class GemInPool : Item
 {
     private float _lifeTime;
 
-    public event Action<ItemFromPool> LifeTimeIsOver;
+    public event Action<GemInPool> LifeTimeIsOver;
 
     public void Init(float life)
     {

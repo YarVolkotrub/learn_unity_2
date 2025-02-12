@@ -45,15 +45,18 @@ public class Player : MonoBehaviour, ITarget, IHealth
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.TryGetComponent(out Item item))
+        if (collider.gameObject.TryGetComponent(out ICollectible item))
         {
-            _inventory.AddPoints(item.Cost);
+            if (item is FirstAidKit)
+            {
+                _heal.Heal(item.CountPoint);
+            }
+            else
+            {
+                _inventory.AddPoints(item.CountPoint);
+            }
+
             item.Destroy();
-        }
-        else if (collider.gameObject.TryGetComponent(out FirstAidKit firstAidKit))
-        {
-            _heal.Heal(firstAidKit.HealPoint);
-            firstAidKit.Destroy();
         }
     }
 

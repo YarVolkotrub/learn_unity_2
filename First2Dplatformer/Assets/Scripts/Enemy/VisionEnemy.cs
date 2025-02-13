@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyView : IEnemyView
+public class VisionEnemy : IVisionEnemy
 {
     private Vector2 _direction = Vector2.right;
     private float _distance = 3f;
@@ -13,12 +13,7 @@ public class EnemyView : IEnemyView
     {
         RaycastHit2D raycastHit2D = Physics2D.Raycast(position, direction, _distance, LayerMask.GetMask(_layerPlayer));
 
-        if (raycastHit2D.collider != null)
-        {
-            return true;
-        }
-
-        return false;
+        return raycastHit2D.collider != null;
     }
 
     public void SetDirection(Vector2 direction)

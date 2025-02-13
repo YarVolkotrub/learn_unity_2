@@ -32,6 +32,4 @@ public class PlayerIdleState : PlayerBaseState
             StateMachine.SwitchState<PlayerMeleeAttackState>();
         }
     }
-
-    public override void FixedUpdate() { }
 }

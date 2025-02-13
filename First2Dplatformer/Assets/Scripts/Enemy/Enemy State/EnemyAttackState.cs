@@ -5,7 +5,7 @@ public class EnemyAttackState : EnemyBaseState
     private float _timer;
     private float _lenghtAnimation;
 
-    public EnemyAttackState(IEnemyView view, IEnemyAnimator enemyAnimation, IEnemyMover mover, IStateSwitcher stateMachine, Enemy enemy) 
+    public EnemyAttackState(IVisionEnemy view, IEnemyAnimator enemyAnimation, IEnemyMover mover, IStateSwitcher stateMachine, Enemy enemy) 
         : base(view, enemyAnimation, mover, stateMachine, enemy) { }
 
     public override void Enter()
@@ -40,9 +40,5 @@ public class EnemyAttackState : EnemyBaseState
         }
 
         _timer += Time.deltaTime;
-    }
-
-    public override void FixedUpdate() 
-    {
     }
 }

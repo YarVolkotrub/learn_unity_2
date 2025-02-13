@@ -5,7 +5,7 @@ public class EnemyMovingState : EnemyBaseState
     private int _spot = 1;
     private Vector2 _direction;
 
-    public EnemyMovingState(IEnemyView view, IEnemyAnimator enemyAnimation, IEnemyMover mover, IStateSwitcher stateMachine, Enemy enemy) 
+    public EnemyMovingState(IVisionEnemy view, IEnemyAnimator enemyAnimation, IEnemyMover mover, IStateSwitcher stateMachine, Enemy enemy) 
         : base(view, enemyAnimation, mover, stateMachine, enemy) { }
 
     public override void Enter()

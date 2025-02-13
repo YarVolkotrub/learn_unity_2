@@ -11,13 +11,13 @@ public class Player : MonoBehaviour, ITarget, IHealth
     private IPlayerInventory _inventory;
     private IHealth _health;
     private IHeal _heal;
-    private PlayerStateMachine _stateMachine;
+    private StateMachine _stateMachine;
 
     public Vector2 Position => transform.position;
 
     public void Init()
     {
-        PlayerHealth health = new(_maxHealthPoint);
+        Health health = new(_maxHealthPoint);
         IPlayerAnimator _animator = _Animation;
         _heal = health;
         _health = health;
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour, ITarget, IHealth
         _inventory = new PlayerInventory();
         IMover _mover = new PlayerMover(_Physics.RigidbodyPlayer, transform);
         IInputSystem _inputSystem = new InputReader();
-        _stateMachine = new PlayerStateMachine(_animator, _mover, _Physics, _inputSystem);
+        _stateMachine = new StateMachine(_animator, _mover, _Physics, _inputSystem);
     }
 
     private void Start()

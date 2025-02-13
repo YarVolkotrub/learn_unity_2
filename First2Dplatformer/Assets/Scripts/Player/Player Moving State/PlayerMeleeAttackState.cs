@@ -29,9 +29,4 @@ public class PlayerMeleeAttackState : PlayerBaseState
 
         _timer += Time.deltaTime;
     }
-
-    public override void FixedUpdate() 
-    {
-
-    }
 }

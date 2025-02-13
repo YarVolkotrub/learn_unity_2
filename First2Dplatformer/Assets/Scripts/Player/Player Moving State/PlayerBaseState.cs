@@ -17,10 +17,10 @@ public abstract class PlayerBaseState : IState
         InputSystem = inputSystem;
     }
 
-    public abstract void Enter();
-    public abstract void Update();
-    public abstract void FixedUpdate();
-    public virtual void Exit() {}
+    public virtual void Enter() { }
+    public virtual void Update() { }
+    public virtual void FixedUpdate() { }
+    public virtual void Exit() { }
 
     protected virtual void Move(Vector2 moveDirection, float speedMove)
     {

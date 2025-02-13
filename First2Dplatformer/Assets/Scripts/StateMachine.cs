@@ -1,12 +1,22 @@
 using System.Collections.Generic;
 using System.Linq;
 
-public class PlayerStateMachine : IStateSwitcher, IStateUpdate
+public class StateMachine : IStateSwitcher, IStateUpdate
 {
-    public IState CurrentState { get; private set; }
     protected List<IState> States;
 
-    public PlayerStateMachine(IPlayerAnimator playerAnimation, IMover mover, PlayerPhysics playerPhysics, IInputSystem inputSystem)
+    public StateMachine(IVisionEnemy view, IEnemyAnimator enemyAnimation, IEnemyMover mover, Enemy enemy)
+    {
+        States = new()
+        {
+            new EnemyIdleState(view, enemyAnimation, mover, this, enemy),
+            new EnemyMovingState(view, enemyAnimation, mover, this, enemy),
+            new EnemyFollowState(view, enemyAnimation, mover, this, enemy),
+            new EnemyAttackState(view, enemyAnimation, mover, this, enemy)
+        };
+    }
+
+    public StateMachine(IPlayerAnimator playerAnimation, IMover mover, PlayerPhysics playerPhysics, IInputSystem inputSystem)
     {
         States = new()
         {
@@ -17,6 +27,8 @@ public class PlayerStateMachine : IStateSwitcher, IStateUpdate
             new PlayerMeleeAttackState(playerAnimation, mover, playerPhysics, this, inputSystem)
         };
     }
+
+    public IState CurrentState { get; private set; }
 
     public void Update()
     {

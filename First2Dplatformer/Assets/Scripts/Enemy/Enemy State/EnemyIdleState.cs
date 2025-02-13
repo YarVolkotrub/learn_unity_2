@@ -4,7 +4,7 @@ public class EnemyIdleState : EnemyBaseState
 {
     private float _timer;
 
-    public EnemyIdleState(IEnemyView view, IEnemyAnimator enemyAnimation, IEnemyMover mover, IStateSwitcher stateMachine, Enemy enemy) 
+    public EnemyIdleState(IVisionEnemy view, IEnemyAnimator enemyAnimation, IEnemyMover mover, IStateSwitcher stateMachine, Enemy enemy) 
         : base(view, enemyAnimation, mover, stateMachine, enemy) { }
 
     public override void Enter()
@@ -28,6 +28,4 @@ public class EnemyIdleState : EnemyBaseState
             EnemyStateMachine.SwitchState<EnemyMovingState>();
         }
     }
-
-    public override void FixedUpdate() { }
 }

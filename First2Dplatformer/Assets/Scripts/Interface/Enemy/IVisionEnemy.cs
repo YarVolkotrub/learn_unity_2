@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public interface IEnemyView
+public interface IVisionEnemy
 {
     public float Distance { get; }
     public Vector2 Direction { get; }

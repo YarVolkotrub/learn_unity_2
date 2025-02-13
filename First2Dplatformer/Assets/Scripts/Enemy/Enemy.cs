@@ -17,9 +17,9 @@ public class Enemy : MonoBehaviour, IEnemyCombat, ICheckOnGround, IHealth
     [SerializeField] private float _distanceAttack = 1f;
 
     protected IEnemyMover Mover;
-    protected IEnemyView View;
+    protected IVisionEnemy View;
     protected IHealth Health;
-    protected EnemyStateMachine StateMachine;
+    protected StateMachine StateMachine;
 
     private float _minDistanceForTarget = 0.2f;
     private string _layerGround = "Ground";

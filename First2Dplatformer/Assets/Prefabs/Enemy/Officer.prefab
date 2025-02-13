@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 377504004693633667}
   - component: {fileID: 271872331922497633}
   - component: {fileID: 2101428853605959128}
-  - component: {fileID: 6968810112786407122}
   - component: {fileID: 7319942392413351295}
   - component: {fileID: 2404334873514678776}
   m_Layer: 8
@@ -189,30 +188,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 271872331922497633}
---- !u!114 &6968810112786407122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3972819456062843623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b112f6f8ef28cdb4f87aa1564a66a39d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PointsSpots:
-  - {fileID: 0}
-  - {fileID: 0}
-  GroundCheck: {fileID: 1932181053399977960}
-  Rigidbody: {fileID: 377504004693633667}
-  MaxHealthPoint: 100
-  SpeedMove: 1
-  WaitSecond: 1
-  _target: {fileID: 0}
-  _Animation: {fileID: 2101428853605959128}
-  _delayAttack: 1.2
-  _distanceAttack: 1.2
 --- !u!114 &7319942392413351295
 MonoBehaviour:
   m_ObjectHideFlags: 0

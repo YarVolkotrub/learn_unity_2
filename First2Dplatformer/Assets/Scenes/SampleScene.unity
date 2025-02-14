@@ -345,7 +345,7 @@ GameObject:
   m_Component:
   - component: {fileID: 321656833}
   - component: {fileID: 321656832}
-  - component: {fileID: 321656834}
+  - component: {fileID: 321656835}
   m_Layer: 0
   m_Name: CoinSpawner
   m_TagString: Untagged
@@ -365,10 +365,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2e5ddfb49871524d8270b1610d13ee9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _item: {fileID: 1732486550621610885, guid: 62890203883b607438740d99c63bdd56, type: 3}
+  _item: {fileID: 2182085145535845143, guid: 62890203883b607438740d99c63bdd56, type: 3}
   _sizeSpawner: 8
   _delaySpawn: 2
-  _pool: {fileID: 321656834}
+  _pool: {fileID: 321656835}
 --- !u!4 &321656833
 Transform:
   m_ObjectHideFlags: 0
@@ -384,7 +384,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &321656834
+--- !u!114 &321656835
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -393,11 +393,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 321656831}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf38ec12f569e3041952fcb7a64a7ae2, type: 3}
+  m_Script: {fileID: 11500000, guid: b003574c9e88e8d4fb13ff33f6e0db36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _item: {fileID: 1732486550621610885, guid: 62890203883b607438740d99c63bdd56, type: 3}
-  _capacity: 2
+  _item: {fileID: 2182085145535845143, guid: 62890203883b607438740d99c63bdd56, type: 3}
+  _capacity: 5
   _itemLife: 3
 --- !u!1001 &328424614
 PrefabInstance:
@@ -5071,6 +5071,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7844262591749324606, guid: 7a76b628b082311498fc8130ecced2d5, type: 3}
+      propertyPath: _Animator
+      value: 
+      objectReference: {fileID: 1688972137}
     - target: {fileID: 7844262591749324606, guid: 7a76b628b082311498fc8130ecced2d5, type: 3}
       propertyPath: _Animation
       value: 

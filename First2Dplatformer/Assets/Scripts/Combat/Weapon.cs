@@ -4,15 +4,13 @@ public class Weapon : MonoBehaviour
 {
     [SerializeField] protected int Damage = 30;
 
-    public void SetActive(bool isActive)
+    public void Enable()
     {
-        if (isActive)
-        {
-            gameObject.SetActive(isActive);
-        }
-        else
-        {
-            gameObject.SetActive(isActive);
-        }
+        gameObject.SetActive(true);
+    }
+
+    public void Disable()
+    {
+        gameObject.SetActive(false);
     }
 }

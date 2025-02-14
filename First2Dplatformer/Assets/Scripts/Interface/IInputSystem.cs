@@ -6,5 +6,4 @@ public interface IInputSystem
     public Vector2 JumpDirection { get; }
     public bool IsStay { get; }
     public bool IsMeleeAttack { get; }
-    public bool IsRangeAttack { get; }
 }

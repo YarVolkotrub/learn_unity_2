@@ -7,16 +7,23 @@ public class Combat: MonoBehaviour
 
     public void OnEnable()
     {
-        _checkerAnimationAttack.WeaponAttacking += Attack;
+        _checkerAnimationAttack.StartAttack += StartAttack;
+        _checkerAnimationAttack.StopAttack += StopAttack;
     }
 
     public void OnDisable()
     {
-        _checkerAnimationAttack.WeaponAttacking -= Attack;
+        _checkerAnimationAttack.StartAttack -= StartAttack;
+        _checkerAnimationAttack.StopAttack -= StopAttack;
     }
 
-    private void Attack(bool isAttack)
+    private void StartAttack()
     {
-        _weapon.SetActive(isAttack);
+        _weapon.Enable();
+    }
+
+    private void StopAttack()
+    {
+        _weapon.Disable();
     }
 }

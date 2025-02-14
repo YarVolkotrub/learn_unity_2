@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FirstAidKitGeneration : MonoBehaviour
+public class FirstAidKitGenerator : MonoBehaviour
 {
     [SerializeField] private List<Transform> _pointsSpots;
     [SerializeField] private FirstAidKit _item;
     [SerializeField] private int _count;
 
-    public void Init()
+    public void Initialization()
     {
         if ((_pointsSpots.Count == _count) || (GetCount() == _pointsSpots.Count))
         {
@@ -31,11 +31,6 @@ public class FirstAidKitGeneration : MonoBehaviour
 
     private int GetCount()
     {
-        if (_count > _pointsSpots.Count)
-        {
-            return _pointsSpots.Count;
-        }
-
-        return _count;
+        return _count > _pointsSpots.Count ? _pointsSpots.Count : _count;
     }
 }

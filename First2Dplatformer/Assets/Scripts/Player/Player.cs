@@ -2,26 +2,26 @@ using UnityEngine;
 
 [RequireComponent(typeof(PlayerAnimator))]
 [RequireComponent(typeof(PlayerPhysics))]
-public class Player : MonoBehaviour, ITarget, IHealth
+public class Player : MonoBehaviour, ITarget, IDamagable
 {
     [SerializeField] private int _maxHealthPoint = 100;
-    [SerializeField] private PlayerAnimator _Animation;
+    [SerializeField] private PlayerAnimator _Animator;
     [SerializeField] private PlayerPhysics _Physics;
 
     private IPlayerInventory _inventory;
-    private IHealth _health;
+    private IDamagable _health;
     private IHeal _heal;
     private StateMachine _stateMachine;
 
     public Vector2 Position => transform.position;
 
-    public void Init()
+    public void Initialization()
     {
         Health health = new(_maxHealthPoint);
-        IPlayerAnimator _animator = _Animation;
+        IPlayerAnimator _animator = _Animator;
         _heal = health;
         _health = health;
-        _Animation.Init();
+        _Animator.Init();
         _inventory = new PlayerInventory();
         IMover _mover = new PlayerMover(_Physics.RigidbodyPlayer, transform);
         IInputSystem _inputSystem = new InputReader();
@@ -56,7 +56,7 @@ public class Player : MonoBehaviour, ITarget, IHealth
                 _inventory.AddPoints(item.CountPoint);
             }
 
-            item.Destroy();
+            item.Collecte();
         }
     }
 

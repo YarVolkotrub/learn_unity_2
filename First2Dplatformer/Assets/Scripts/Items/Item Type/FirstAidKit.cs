@@ -1,6 +1,6 @@
 public class FirstAidKit : Item
 {
-    public override void Destroy()
+    public override void Collecte()
     {
         Destroy(gameObject);
     }

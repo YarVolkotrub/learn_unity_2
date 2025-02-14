@@ -1,18 +1,18 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(ItemPool))]
-public class ItemSpawner : MonoBehaviour
+[RequireComponent(typeof(PoolGem))]
+public class GemSpawner : MonoBehaviour
 {
-    [SerializeField] private GemInPool _item;
+    [SerializeField] private PooledGem _item;
     [SerializeField, Range(0, 10)] private float _sizeSpawner = 8;
     [SerializeField, Range(0, 5)] private float _delaySpawn = 2;
-    [SerializeField] private ItemPool _pool;
+    [SerializeField] private PoolGem _pool;
 
     private float _spawnAreaSizeMin;
     private float _spawnAreaSizeMax;
 
-    public void Init()
+    public void Initialization()
     {
         _spawnAreaSizeMin = transform.position.x - _sizeSpawner;
         _spawnAreaSizeMax = transform.position.x + _sizeSpawner;
@@ -31,7 +31,7 @@ public class ItemSpawner : MonoBehaviour
         {
             yield return wait;
 
-            GemInPool item = _pool.Get();
+            PooledGem item = _pool.Get();
             item.LifeTimeIsOver += ReturnItemInPool;
             item.transform.position = new Vector2(GetPointSpawn(), transform.position.y);
         }
@@ -42,7 +42,7 @@ public class ItemSpawner : MonoBehaviour
         return Random.Range(_spawnAreaSizeMin, _spawnAreaSizeMax);
     }
 
-    private void ReturnItemInPool(GemInPool item)
+    private void ReturnItemInPool(PooledGem item)
     {
         _pool.Return(item);
         item.LifeTimeIsOver -= ReturnItemInPool;

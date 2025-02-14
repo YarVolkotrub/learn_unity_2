@@ -3,7 +3,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(EnemyAnimator))]
-public class Enemy : MonoBehaviour, IEnemyCombat, ICheckOnGround, IHealth
+public class Enemy : MonoBehaviour, IEnemyCombat, ICheckOnGround, IDamagable
 {
     [SerializeField] private Transform[] PointsSpots;
     [SerializeField] private Transform GroundCheck;
@@ -18,14 +18,14 @@ public class Enemy : MonoBehaviour, IEnemyCombat, ICheckOnGround, IHealth
 
     private IEnemyMover Mover;
     private IVisionEnemy View;
-    private IHealth Health;
+    private IDamagable Health;
     private StateMachine StateMachine;
 
     private float _minDistanceForTarget = 0.2f;
     private string _layerGround = "Ground";
     private float _groundRadius = 0.05f;
 
-    public void Init()
+    public void Initialization()
     {
         Mover = new EnemyMover(Rigidbody, transform);
         View = new VisionEnemy();

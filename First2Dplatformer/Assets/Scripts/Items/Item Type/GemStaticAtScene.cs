@@ -1,6 +1,6 @@
 public class GemStaticAtScene : Item
 {
-    public override void Destroy()
+    public override void Collecte()
     {
         Destroy(gameObject);
     }

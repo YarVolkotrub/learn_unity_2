@@ -2,11 +2,11 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class GemInPool : Item
+public class PooledGem : Item
 {
     private float _lifeTime;
 
-    public event Action<GemInPool> LifeTimeIsOver;
+    public event Action<PooledGem> LifeTimeIsOver;
 
     public void Init(float life)
     {
@@ -15,18 +15,18 @@ public class GemInPool : Item
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out Ground ground))
+        if (collision.gameObject.TryGetComponent(out Ground _))
         {
-            StartCoroutine(ÑountdownLife());
+            StartCoroutine(CountdownLife());
         }
 
-        if (collision.gameObject.TryGetComponent(out Player player))
+        if (collision.gameObject.TryGetComponent(out Player _))
         {
-            Destroy();
+            Collecte();
         }
     }
 
-    private IEnumerator ÑountdownLife()
+    private IEnumerator CountdownLife()
     {
         WaitForSeconds wait = new(_lifeTime);
 
@@ -34,11 +34,11 @@ public class GemInPool : Item
         {
             yield return wait;
 
-            Destroy();
+            Collecte();
         }
     }
 
-    public override void Destroy()
+    public override void Collecte()
     {
         LifeTimeIsOver?.Invoke(this);
     }

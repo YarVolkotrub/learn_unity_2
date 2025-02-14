@@ -1,6 +1,9 @@
-public class Health : IHeal, IHealth
+using UnityEngine;
+
+public class Health : IHeal, IDamagable
 {
     private int _maxHealth;
+    private int _minHealth = 0;
 
     public int HealthProperty { get; private set; }
 
@@ -18,15 +21,19 @@ public class Health : IHeal, IHealth
         }
 
         HealthProperty -= damage;
+
+        NormalizationHealth();
     }
 
     public void Heal(int healPoint)
     {
         HealthProperty += healPoint;
 
-        if (HealthProperty > _maxHealth)
-        {
-            HealthProperty = _maxHealth;
-        }
+        NormalizationHealth();
+    }
+
+    private void NormalizationHealth()
+    {
+        HealthProperty = Mathf.Clamp(HealthProperty, _minHealth, _maxHealth);
     }
 }

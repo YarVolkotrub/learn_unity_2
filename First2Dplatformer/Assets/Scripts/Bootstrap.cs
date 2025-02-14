@@ -4,22 +4,22 @@ public class Bootstrap : MonoBehaviour
 {
     [SerializeField] private Player _player;
     [SerializeField] private Enemy[] _enemys;
-    [SerializeField] private ItemSpawner _itemSpawner;
-    [SerializeField] private FirstAidKitGeneration _generationPositionItem;
+    [SerializeField] private GemSpawner _itemSpawner;
+    [SerializeField] private FirstAidKitGenerator _generationPositionItem;
 
     private void Awake()
     {
-        _player.Init();
+        _player.Initialization();
         InitEnemys();
-        _itemSpawner.Init();
-        _generationPositionItem.Init();
+        _itemSpawner.Initialization();
+        _generationPositionItem.Initialization();
     }
 
     private void InitEnemys()
     {
         foreach (Enemy enemy in _enemys)
         {
-            enemy.Init();
+            enemy.Initialization();
         }
     }
 }
